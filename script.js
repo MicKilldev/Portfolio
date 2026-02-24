@@ -10,7 +10,7 @@ function closeMenu() {
 }
 
 window.addEventListener('scroll', () => {
-    if(scrollY > 50) {
+    if (scrollY > 50) {
         navBar.classList.add('bg-white', 'bg-opacity-50', 'backdrop-blur-lg', 'shadow-sm');
         navLinks.classList.remove('bg-white', 'shadow-sm', 'bg-opacity-50');
     } else {
