@@ -4,11 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Noli Jhon Mickael Garde</title>
+    <title>WONoli Jhon Mickael Garde</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">
+    <link rel="icon" href="./image/MickaelLogo.png" type="image/png">
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -41,10 +46,30 @@
     </script>
 </head>
 
-<body class="overflow-x-hidden font-Outfit leading-8 text-gray-700 dark:bg-darkTheme dark:text-white">
-    <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden">
-        <img src="./image/header-bg-color.png" alt="Header Background" class="w-full h-full object-cover">
+<body class="overflow-x-hidden font-Outfit leading-8 text-gray-700 dark:bg-[#07050f] dark:text-white">
+
+    <div class="fixed -z-10 top-0 left-0 w-full h-full overflow-hidden">
+        <div class="absolute w-[500px] h-[500px] bg-purple-500/30 blur-[120px] rounded-full top-[-100px] left-[-100px]">
+        </div>
+        <div
+            class="absolute w-[500px] h-[500px] bg-blue-500/30 blur-[120px] rounded-full bottom-[-100px] right-[-100px]">
+        </div>
     </div>
+
+    <!-- Dark Mode Background matching reference image -->
+    <div class="hidden dark:block fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <!-- Subtle Grid Pattern -->
+        <div class="absolute inset-0 opacity-[0.05]"
+            style="background-image: linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px); background-size: 32px 32px; mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, #000 40%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, #000 40%, transparent 100%);">
+        </div>
+
+        <!-- Central Deep Purple/Indigo Glow -->
+        <div
+            class="absolute top-[-10%] left-[50%] w-[100vw] h-[60vh] -translate-x-[50%] rounded-full opacity-60 blur-[120px] bg-[radial-gradient(ellipse_at_center,rgba(88,28,135,0.4)_0%,rgba(49,46,129,0.2)_50%,transparent_80%)]">
+        </div>
+    </div>
+
+
     <nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] px-4 flex items-center justify-between z-50">
         <img src="./image/logo1.png" alt="logo" class="w-32 cursor-pointer mr-14 dark:hidden">
 
@@ -97,7 +122,9 @@
         <img src="./image/Noli _Rounded(1).png" alt="" class="rounded-full w-32">
         <h3 class="flex items-end gap-2 text-xl md:text-2xl mb-3 font-Ovo">
             Hi i'm Mickael Garde <img src="./image/hand-icon.png" alt="" class="w-6"></h3>
-        <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">frontend web developer based in Philippines.</h1>
+        <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">
+            I am a <span id="typed" class="text-purple-500"></span>
+        </h1>
         <p class="max-w-2xl mx-auto font-Ovo">I am a frontend developer from Davao City, Philippines with 1 year of
             experience.
         </p>
@@ -113,7 +140,7 @@
     </div>
 
     <!--- About me--->
-    <div id="about" class="w-full px-[12%] py-10 scroll-mt-20">
+    <div id="about" class="w-full px-[12%] py-10 scroll-mt-20" data-aos="fade-up">
         <h4 class="text-center mb-2 text-lg font-Ovo">Introduction</h4>
         <h2 class="text-center text-5xl font-Ovo">About me</h2>
 
@@ -142,7 +169,8 @@
                         <img src="./image/code-icon-dark.png" alt="" class="w-7 mt-3 hidden dark:block">
 
                         <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Languages</h3>
-                        <p class="text-gray-600 text-sm dark:text-white/80">HTML, CSS, JavaScript <br> React Js, Next Js, and more
+                        <p class="text-gray-600 text-sm dark:text-white/80">HTML, CSS, JavaScript <br> React Js, Next
+                            Js, and more
                         </p>
                     </li>
 
@@ -187,8 +215,48 @@
             </div>
         </div>
     </div>
+
+    <!-- My Skills Section -->
+    <div class="w-full px-[12%] py-20" data-aos="fade-up">
+        <h2 class="text-center text-5xl font-Ovo mb-12">
+            My Skills
+        </h2>
+        <div class="space-y-6 max-w-2xl mx-auto">
+            <div>
+                <p>HTML</p>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div class="bg-purple-500 h-3 rounded-full w-[95%]"></div>
+                </div>
+            </div>
+            <div>
+                <p>CSS / Tailwind</p>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div class="bg-purple-500 h-3 rounded-full w-[90%]"></div>
+                </div>
+            </div>
+            <div>
+                <p>JavaScript</p>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div class="bg-purple-500 h-3 rounded-full w-[80%]"></div>
+                </div>
+            </div>
+            <div>
+                <p>Laravel</p>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div class="bg-purple-500 h-3 rounded-full w-[60%]"></div>
+                </div>
+            </div>
+            <div>
+                <p>Flutter</p>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div class="bg-purple-500 h-3 rounded-full w-[75%]"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!--- Services --->
-    <div id="services" class="w-full px-[12%] py-20 scroll-mt-20">
+    <div id="services" class="w-full px-[12%] py-20 scroll-mt-20" data-aos="fade-up">
         <h4 class="text-center mb-2 text-lg font-Ovo">What i offer</h4>
         <h2 class="text-center text-5xl font-Ovo">My Services</h2>
         <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">I am a frontend web developer specializing in
@@ -247,7 +315,7 @@
     </div>
 
     <!--- My work --->
-    <div id="work" class="w-full px-[12%] py-20 scroll-mt-20">
+    <div id="work" class="w-full px-[12%] py-20 scroll-mt-20" data-aos="fade-up">
         <h4 class="text-center mb-2 text-lg font-Ovo">My work</h4>
         <h2 class="text-center text-5xl font-Ovo">My Portfolio</h2>
         <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">Here are some of my recent projects that showcase
@@ -256,61 +324,109 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 my-10 gap-5 dark:text-black">
             <div
-                class="aspect-square bg-[url('./image/work-1.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
-                <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
-                    <div>
-                        <h2 class="font-semibold">Frontend project</h2>
-                        <p class="text-sm text-gray-700">Web design</p>
-                    </div>
-                    <div
-                        class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-                        <img src="./image/send-icon.png" alt="" class="w-5">
-                    </div>
-                </div>
-            </div>
-
-            <div
-                class="aspect-square bg-[url('./image/work-2.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
-                <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
-                    <div>
-                        <h2 class="font-semibold">Geo based app</h2>
-                        <p class="text-sm text-gray-700">Mobile app</p>
-                    </div>
-                    <div
-                        class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-                        <img src="./image/send-icon.png" alt="" class="w-5">
+                class="bg-white dark:bg-darkHover dark:text-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 duration-500 border border-gray-200 dark:border-white/10">
+                <img src="./image/Ascend.jpg" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold">
+                        Ascend
+                    </h3>
+                    <p class="text-sm mt-2 text-gray-700 dark:text-white/80">
+                        A school management system that allows admins, students, and parents
+                        to manage announcements, records, and communication.
+                    </p>
+                    <p class="text-sm mt-3 text-purple-500 font-medium">
+                        XAMPP • MySQL • PHP
+                    </p>
+                    <div class="flex gap-4 mt-4">
+                        <a href="#"
+                            class="px-4 py-2 bg-black text-white rounded-lg text-sm dark:bg-white dark:text-black hover:bg-gray-800 transition">
+                            Live Demo
+                        </a>
+                        <a href="#"
+                            class="px-4 py-2 border rounded-lg text-sm dark:border-white/50 hover:bg-gray-50 dark:hover:bg-white/10 transition">
+                            Github
+                        </a>
                     </div>
                 </div>
             </div>
 
             <div
-                class="aspect-square bg-[url('./image/work-3.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
-                <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
-                    <div>
-                        <h2 class="font-semibold">Photography site</h2>
-                        <p class="text-sm text-gray-700">Web design</p>
-                    </div>
-                    <div
-                        class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-                        <img src="./image/send-icon.png" alt="" class="w-5">
+                class="bg-white dark:bg-darkHover dark:text-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 duration-500 border border-gray-200 dark:border-white/10">
+                <img src="./image/Sukati1.png" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold">
+                        Sukati
+                    </h3>
+                    <p class="text-sm mt-2 text-gray-700 dark:text-white/80">
+                        A tailor management system that allows tailors
+                        to manage their clients, orders, and measurements.
+                    </p>
+                    <p class="text-sm mt-3 text-purple-500 font-medium">
+                        Flutter • Firebase • Dart
+                    </p>
+                    <div class="flex gap-4 mt-4">
+                        <a href="#"
+                            class="px-4 py-2 bg-black text-white rounded-lg text-sm dark:bg-white dark:text-black hover:bg-gray-800 transition">
+                            Live Demo
+                        </a>
+                        <a href="#"
+                            class="px-4 py-2 border rounded-lg text-sm dark:border-white/50 hover:bg-gray-50 dark:hover:bg-white/10 transition">
+                            Github
+                        </a>
                     </div>
                 </div>
             </div>
 
             <div
-                class="aspect-square bg-[url('./image/work-4.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
-                <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
-                    <div>
-                        <h2 class="font-semibold">UI/UX designing</h2>
-                        <p class="text-sm text-gray-700">UI/UX Design</p>
+                class="bg-white dark:bg-darkHover dark:text-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 duration-500 border border-gray-200 dark:border-white/10">
+                <img src="./image/BlueBalud1.png" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold">
+                        BlueBalud
+                    </h3>
+                    <p class="text-sm mt-2 text-gray-700 dark:text-white/80">
+                        A educational App that allows student physicists, engineers, and chemists
+                        to learn and practice their skills.
+                    </p>
+                    <p class="text-sm mt-3 text-purple-500 font-medium">
+                        Flutter • Firebase • Dart
+                    </p>
+                    <div class="flex gap-4 mt-4">
+                        <a href="#"
+                            class="px-4 py-2 bg-black text-white rounded-lg text-sm dark:bg-white dark:text-black hover:bg-gray-800 transition">
+                            Live Demo
+                        </a>
+                        <a href="#"
+                            class="px-4 py-2 border rounded-lg text-sm dark:border-white/50 hover:bg-gray-50 dark:hover:bg-white/10 transition">
+                            Github
+                        </a>
                     </div>
-                    <div
-                        class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-                        <img src="./image/send-icon.png" alt="" class="w-5">
+                </div>
+            </div>
+
+            <div
+                class="bg-white dark:bg-darkHover dark:text-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 duration-500 border border-gray-200 dark:border-white/10">
+                <img src="./image/KwartaTala.png" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold">
+                        KwartaTala
+                    </h3>
+                    <p class="text-sm mt-2 text-gray-700 dark:text-white/80">
+                        A finance management system that allows users
+                        to manage their finances.
+                    </p>
+                    <p class="text-sm mt-3 text-purple-500 font-medium">
+                        React • Javascript • Tailwind
+                    </p>
+                    <div class="flex gap-4 mt-4">
+                        <a href="#"
+                            class="px-4 py-2 bg-black text-white rounded-lg text-sm dark:bg-white dark:text-black hover:bg-gray-800 transition">
+                            Live Demo
+                        </a>
+                        <a href="#"
+                            class="px-4 py-2 border rounded-lg text-sm dark:border-white/50 hover:bg-gray-50 dark:hover:bg-white/10 transition">
+                            Github
+                        </a>
                     </div>
                 </div>
             </div>
@@ -324,16 +440,25 @@
     </a>
     </div>
 
+    <!-- Github Activity -->
+    <div class="text-center py-20" data-aos="fade-up">
+        <h2 class="text-5xl font-Ovo mb-10">
+            Github Activity
+        </h2>
+        <img src="https://github-readme-stats.vercel.app/api?username=MicKilldev&show_icons=true&theme=tokyonight"
+            class="mx-auto" />
+    </div>
+
     <!--- Contact --->
-    <div id="contact"
-        class="w-full px-[12%] py-20 control-mt-20 bg-[url('/image/footer-ng-color.png')] bg-no-repeat bg-[lenght:90%_auto] bg-center dark:bg-none">
+    <div id="contact" class="w-full px-[12%] py-20 scroll-mt-20 dark:bg-none">
         <h4 class="text-center mb-2 text-lg font-Ovo">Contact with me</h4>
         <h2 class="text-center text-5xl font-Ovo">Get in touch</h2>
         <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">i'd love to hear from you! if you have feedback,
             please use
             the form below.</p>
 
-        <form method="POST" action="https://api.web3forms.com/submit" class="max-w-2xl mx-auto">
+        <form id="contactForm" method="POST" action="https://api.web3forms.com/submit" class="max-w-2xl mx-auto"
+            onsubmit="return validateRecaptcha()">
 
             <input type="hidden" name="access_key" value="900b2860-857a-47ee-9731-5653928b2842">
 
@@ -350,8 +475,17 @@
             <textarea rows="6" placeholder="Enter your message"
                 class="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 dark:bg-darkHover/30 dark:border-white/90"
                 required name="message"></textarea>
-            <button
-                class="py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 dark:çbg-transparent dark:border-[0.5px] dark:hover:bg-darkHover">Submit
+
+            <!-- reCAPTCHA Widget -->
+            <div class="flex flex-col items-center mb-6">
+                <div class="g-recaptcha" data-sitekey="6Le9lYwsAAAAALzJ7hS_kEJOO8bu_PM0WENPdI24" data-theme="light"
+                    id="recaptcha-widget"></div>
+                <p id="recaptcha-error" class="text-red-500 text-sm mt-2 hidden">Please complete the reCAPTCHA
+                    verification.</p>
+            </div>
+
+            <button type="submit"
+                class="py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover">Submit
                 now <img src="./image/right-arrow-white.png" alt="" class="w-4 dark:hidden">
                 <img src="./image/right-arrow-bold.png" alt="" class="w-4 hidden dark:block">
             </button>
@@ -386,6 +520,55 @@
     </div>
 
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        var typed = new Typed("#typed", {
+            strings: [
+                "Full Stack Developer",
+                "Laravel Developer",
+                "Frontend Developer",
+                "React Developer",
+                "Flutter Developer"
+            ],
+            typeSpeed: 60,
+            backSpeed: 40,
+            loop: true
+        });
+
+        const cursor = document.createElement("div");
+        cursor.style.position = "fixed";
+        cursor.style.width = "20px";
+        cursor.style.height = "20px";
+        cursor.style.background = "purple";
+        cursor.style.borderRadius = "50%";
+        cursor.style.pointerEvents = "none";
+        cursor.style.opacity = "0.6";
+        cursor.style.filter = "blur(6px)";
+        cursor.style.zIndex = "9999";
+        document.body.appendChild(cursor);
+
+        document.addEventListener("mousemove", e => {
+            cursor.style.left = e.clientX + "px";
+            cursor.style.top = e.clientY + "px";
+        });
+
+        // reCAPTCHA validation
+        function validateRecaptcha() {
+            const response = grecaptcha.getResponse();
+            const errorMsg = document.getElementById('recaptcha-error');
+            if (!response) {
+                errorMsg.classList.remove('hidden');
+                return false;
+            }
+            errorMsg.classList.add('hidden');
+            return true;
+        }
+    </script>
     <script src="./script.js"></script>
 </body>
 
