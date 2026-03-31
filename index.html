@@ -13,7 +13,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -157,8 +156,9 @@
             </div>
             <div class="flex-1">
                 <p class="mb-10 max-w-2xl font-Ovo">
-                    I am an experienced Frontend Developer with over a year of professional expertise in the field.
-                    Throughout my career, I have had the privilege of collaborating with prestigious organizations,
+                    I am an experienced full stack developer with over a year of professional expertise in the field.
+                    Throughout my career, I have had
+                    the privilege of collaborating with prestigious organizations,
                     contributing to their success and growth.
                 </p>
 
@@ -422,7 +422,7 @@
                         React • Javascript • Tailwind
                     </p>
                     <div class="flex gap-4 mt-4">
-                        <a href="#"
+                        <a href="https://drive.google.com/file/d/1RAVBw-h2l9pWBg2MCVj3_8wsADl3QO6s/view?usp=sharing"
                             class="px-4 py-2 bg-black text-white rounded-lg text-sm dark:bg-white dark:text-black hover:bg-gray-800 transition">
                             Live Demo
                         </a>
@@ -443,14 +443,6 @@
     </a>
     </div>
 
-    <!-- Github Activity -->
-    <div class="text-center py-20" data-aos="fade-up">
-        <h2 class="text-5xl font-Ovo mb-10">
-            Github Activity
-        </h2>
-        <img src="https://github-readme-stats.vercel.app/api?username=MicKilldev&show_icons=true&theme=tokyonight"
-            class="mx-auto" />
-    </div>
 
     <!--- Contact --->
     <div id="contact" class="w-full px-[12%] py-20 scroll-mt-20 dark:bg-none">
@@ -460,10 +452,11 @@
             please use
             the form below.</p>
 
-        <form id="contactForm" method="POST" action="https://api.web3forms.com/submit" class="max-w-2xl mx-auto"
-            onsubmit="return validateRecaptcha()">
+        <form id="contactForm" method="POST" action="https://api.web3forms.com/submit" class="max-w-2xl mx-auto">
 
             <input type="hidden" name="access_key" value="900b2860-857a-47ee-9731-5653928b2842">
+            <!-- Web3Forms Honeypot -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10 mb-8">
                 <input type="text" placeholder="Enter your name"
@@ -478,14 +471,6 @@
             <textarea rows="6" placeholder="Enter your message"
                 class="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 dark:bg-darkHover/30 dark:border-white/90"
                 required name="message"></textarea>
-
-            <!-- reCAPTCHA Widget -->
-            <div class="flex flex-col items-center mb-6">
-                <div class="g-recaptcha" data-sitekey="6Le9lYwsAAAAALzJ7hS_kEJOO8bu_PM0WENPdI24" data-theme="light"
-                    id="recaptcha-widget"></div>
-                <p id="recaptcha-error" class="text-red-500 text-sm mt-2 hidden">Please complete the reCAPTCHA
-                    verification.</p>
-            </div>
 
             <button type="submit"
                 class="py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover">Submit
@@ -559,18 +544,6 @@
             cursor.style.left = e.clientX + "px";
             cursor.style.top = e.clientY + "px";
         });
-
-        // reCAPTCHA validation
-        function validateRecaptcha() {
-            const response = grecaptcha.getResponse();
-            const errorMsg = document.getElementById('recaptcha-error');
-            if (!response) {
-                errorMsg.classList.remove('hidden');
-                return false;
-            }
-            errorMsg.classList.add('hidden');
-            return true;
-        }
     </script>
     <script src="./script.js"></script>
 </body>
