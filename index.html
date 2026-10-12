@@ -1,551 +1,731 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noli Jhon Mickael Garde</title>
+    <title>Noli Jhon Mickael Garde — Frontend & Full Stack Developer</title>
+    <meta name="description" content="Portfolio of Noli Jhon Mickael Garde - Frontend and Full Stack Developer specializing in modern glassmorphic web and mobile apps.">
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Ovo&display=swap" rel="stylesheet">
     <link rel="icon" href="./image/MickaelLogo.png" type="image/png">
 
+    <!-- External Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'Outfit', 'sans-serif'],
                         Outfit: ["Outfit", "sans-serif"],
                         Ovo: ["Ovo", "serif"]
                     },
-                    gridTemplateColumns: {
-                        'auto': 'repeat(auto-fit, minmax(200px, 1fr))'
-                    },
                     animation: {
-                        spin_slow: 'spin 6s linear infinite'
-                    },
-                    colors: {
-                        lightHover: '#fcf4ff',
-                        darkHover: '#2a004a',
-                        darkTheme: '#11001F'
-                    },
-                    boxShadow: {
-                        'black': '4px 4px 0 #000',
-                        'white': '4px 4px 0 #fff',
+                        spin_slow: 'spin 12s linear infinite'
                     }
                 }
             },
             darkMode: 'selector'
         }
     </script>
+
+    <!-- Custom Glassmorphism Stylesheet -->
+    <link rel="stylesheet" href="./index.css?v=3">
 </head>
 
-<body class="overflow-x-hidden font-Outfit leading-8 text-gray-700 dark:bg-[#07050f] dark:text-white">
+<body class="overflow-x-hidden selection:bg-blue-500/20 selection:text-blue-700 dark:selection:bg-white/20 dark:selection:text-white">
 
-    <div class="fixed -z-10 top-0 left-0 w-full h-full overflow-hidden">
-        <div class="absolute w-[500px] h-[500px] bg-purple-500/30 blur-[120px] rounded-full top-[-100px] left-[-100px]">
-        </div>
-        <div
-            class="absolute w-[500px] h-[500px] bg-blue-500/30 blur-[120px] rounded-full bottom-[-100px] right-[-100px]">
-        </div>
-    </div>
+    <!-- Ambient Glowing Glassmorphism Background -->
+    <div class="fixed inset-0 pointer-events-none -z-20 overflow-hidden">
+        <!-- Floating luminous ambient orbs that shine through frosted glass -->
+        <div class="ambient-orb-1 absolute w-[650px] h-[650px] rounded-full blur-[140px] opacity-70 dark:opacity-25 bg-gradient-to-tr from-sky-200/80 via-blue-200/60 to-indigo-200/50 -top-40 -left-40"></div>
+        <div class="ambient-orb-2 absolute w-[700px] h-[700px] rounded-full blur-[160px] opacity-60 dark:opacity-20 bg-gradient-to-bl from-purple-200/70 via-pink-200/50 to-rose-100/40 top-[35%] -right-40"></div>
+        <div class="ambient-orb-3 absolute w-[600px] h-[600px] rounded-full blur-[150px] opacity-65 dark:opacity-20 bg-gradient-to-tr from-teal-100/70 via-cyan-200/50 to-blue-200/40 bottom-10 -left-20"></div>
 
-    <!-- Dark Mode Background matching reference image -->
-    <div class="hidden dark:block fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <!-- Subtle Grid Pattern -->
-        <div class="absolute inset-0 opacity-[0.05]"
-            style="background-image: linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px); background-size: 32px 32px; mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, #000 40%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, #000 40%, transparent 100%);">
-        </div>
-
-        <!-- Central Deep Purple/Indigo Glow -->
-        <div
-            class="absolute top-[-10%] left-[50%] w-[100vw] h-[60vh] -translate-x-[50%] rounded-full opacity-60 blur-[120px] bg-[radial-gradient(ellipse_at_center,rgba(88,28,135,0.4)_0%,rgba(49,46,129,0.2)_50%,transparent_80%)]">
+        <!-- Glass Dot Matrix Grid Overlay -->
+        <div class="absolute inset-0 opacity-[0.25] dark:opacity-[0.07]"
+            style="background-image: radial-gradient(rgba(100, 116, 139, 0.4) 1px, transparent 1px); background-size: 28px 28px; mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, #000 60%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, #000 60%, transparent 100%);">
         </div>
     </div>
 
-
-    <nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] px-4 flex items-center justify-between z-50">
-        <img src="./image/logo1.png" alt="logo" class="w-32 cursor-pointer mr-14 dark:hidden">
-
-        <img src="./image/logo_dark.png" alt="logo" class="w-32 cursor-pointer mr-14 hidden dark:block">
-
-        <ul
-            class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/50 dark:bg-transparent">
-            <li><a href="#top">Home</a></li>
-            <li><a href="#about">About me</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#work">My Work</a></li>
-            <li><a href="#contact">Contact me</a></li>
-        </ul>
-        <div class="flex items-center gap-4">
-            <button onclick="toggleTheme()"><img src="./image/moon_icon.png" alt="Menu" class="w-6 dark:hidden">
-                <img src="./image/sun_icon.png" alt="Menu" class="w-6 hidden dark:block">
-            </button>
-            <a href="#contact"
-                class="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-Ovo">
-                Contact <img src="./image/arrow-icon.png" alt="arrow-icon" class="w-3 dark:hidden">
-                <img src="./image/arrow-icon-dark.png" alt="arrow-icon" class="w-3 hidden dark:block">
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 py-4 px-4 sm:px-8 transition-all duration-300">
+        <nav class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Brand Logo with Glass Accent -->
+            <a href="#top" class="flex items-center gap-2 group">
+                <div class="p-2 glass-pill hover:scale-105 transition duration-300">
+                    <img src="./image/logo1.png" alt="Mickael Garde" class="h-8 w-auto dark:hidden">
+                    <img src="./image/logo_dark.png" alt="Mickael Garde" class="h-8 w-auto hidden dark:block">
+                </div>
             </a>
-            <button class="block md:hidden ml-3" onclick="openMenu()">
-                <img src="./image/menu-black.png" alt="Menu" class="w-6 dark:hidden">
-                <img src="./image/menu-white.png" alt="Menu" class="w-6 hidden dark:block">
 
-            </button>
+            <!-- Floating Glass Navigation Capsule (Desktop) -->
+            <ul class="hidden md:flex items-center gap-7 lg:gap-9 glass-pill px-8 py-3 text-sm font-medium text-slate-700 dark:text-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.03)] border border-white/80 dark:border-white/10">
+                <li><a href="#top" class="hover:text-blue-600 dark:hover:text-white transition">Home</a></li>
+                <li><a href="#about" class="hover:text-blue-600 dark:hover:text-white transition">About</a></li>
+                <li><a href="#skills" class="hover:text-blue-600 dark:hover:text-white transition">Skills</a></li>
+                <li><a href="#services" class="hover:text-blue-600 dark:hover:text-white transition">Services</a></li>
+                <li><a href="#work" class="hover:text-blue-600 dark:hover:text-white transition">Projects</a></li>
+                <li><a href="#contact" class="hover:text-blue-600 dark:hover:text-white transition">Contact</a></li>
+            </ul>
+
+            <!-- Controls (Theme Toggle & CTA) -->
+            <div class="flex items-center gap-3">
+                <!-- Theme Toggle Button -->
+                <button onclick="toggleTheme()" class="w-11 h-11 rounded-full glass-pill flex items-center justify-center hover:scale-105 transition" aria-label="Toggle theme">
+                    <img src="./image/moon_icon.png" alt="Dark mode" class="w-5 dark:hidden">
+                    <img src="./image/sun_icon.png" alt="Light mode" class="w-5 hidden dark:block">
+                </button>
+
+                <!-- Contact CTA Button -->
+                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold glass-btn-dark shadow-sm">
+                    Let's Talk
+                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+
+                <!-- Mobile Hamburger Button -->
+                <button class="md:hidden w-11 h-11 rounded-full glass-pill flex items-center justify-center hover:scale-105 transition" onclick="openMenu()" aria-label="Open menu">
+                    <img src="./image/menu-black.png" alt="Menu" class="w-5 dark:hidden">
+                    <img src="./image/menu-white.png" alt="Menu" class="w-5 hidden dark:block">
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="sideMenu" class="fixed inset-y-0 right-0 w-72 glass-panel z-50 p-8 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden flex flex-col justify-between border-l border-white/80 dark:border-white/10 shadow-2xl">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-slate-200/60 dark:border-white/10">
+                    <span class="font-bold text-lg text-slate-800 dark:text-white">Navigation</span>
+                    <button onclick="closeMenu()" class="w-9 h-9 rounded-full glass-pill flex items-center justify-center" aria-label="Close menu">
+                        <img src="./image/close-black.png" alt="Close" class="w-4 dark:hidden">
+                        <img src="./image/close-white.png" alt="Close" class="w-4 hidden dark:block">
+                    </button>
+                </div>
+                <ul class="flex flex-col gap-5 mt-8 text-base font-medium text-slate-700 dark:text-slate-200">
+                    <li><a href="#top" onclick="closeMenu()" class="block py-1 hover:text-blue-600 dark:hover:text-white transition">Home</a></li>
+                    <li><a href="#about" onclick="closeMenu()" class="block py-1 hover:text-blue-600 dark:hover:text-white transition">About</a></li>
+                    <li><a href="#skills" onclick="closeMenu()" class="block py-1 hover:text-blue-600 dark:hover:text-white transition">Skills</a></li>
+                    <li><a href="#services" onclick="closeMenu()" class="block py-1 hover:text-blue-600 dark:hover:text-white transition">Services</a></li>
+                    <li><a href="#work" onclick="closeMenu()" class="block py-1 hover:text-blue-600 dark:hover:text-white transition">Projects</a></li>
+                    <li><a href="#contact" onclick="closeMenu()" class="block py-1 hover:text-blue-600 dark:hover:text-white transition">Contact</a></li>
+                </ul>
+            </div>
+            <div class="pt-6 border-t border-slate-200/60 dark:border-white/10">
+                <a href="#contact" onclick="closeMenu()" class="w-full py-3 rounded-full text-center font-semibold text-sm glass-btn-dark block">
+                    Get in Touch
+                </a>
+            </div>
         </div>
-        <!-- Mobile Menu -->
-        <ul id="sideMenu"
-            class="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 font-Ovo dark:bg-darkHover dark:text-white">
+    </header>
 
-            <div class="absolute right-6 top-6" onclick="closeMenu()">
-                <img src="./image/close-black.png" alt="" class="w-8 cursor-pointer dark:hidden">
-                <img src="./image/close-white.png" alt="" class="w-8 cursor-pointer hidden dark:block">
+    <!-- Hero Section -->
+    <section id="top" class="relative min-h-screen pt-28 pb-16 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
+        <div class="max-w-3xl mx-auto flex flex-col items-center" data-aos="fade-up">
+            
+            <!-- Availability Glass Badge -->
+            <div class="glass-badge mb-6 py-1.5 px-4">
+                <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span class="text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200">Available for projects & freelance work</span>
             </div>
 
-            <li><a href="#top">Home</a></li>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#work">My Work</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div>
-    </nav>
-
-    <!-- Header -->
-
-    <div class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
-        <img src="./image/Noli _Rounded(1).png" alt="" class="rounded-full w-32">
-        <h3 class="flex items-end gap-2 text-xl md:text-2xl mb-3 font-Ovo">
-            Hi i'm Mickael Garde <img src="./image/hand-icon.png" alt="" class="w-6"></h3>
-        <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">
-            I am a <span id="typed" class="text-purple-500"></span>
-        </h1>
-        <p class="max-w-2xl mx-auto font-Ovo">I am a frontend developer from Davao City, Philippines with 2 years of
-            experience.
-        </p>
-        <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
-            <a href="#contact"
-                class="px-10 py-3 border rounded-full bg-gradient-to-t from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 font-Ovo dark:border-transparent">contact
-                me <img src="./image/right-arrow-white.png" alt="" class="w-4"></a>
-
-            <a href="/image/Garde,N_CV .pdf" download
-                class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black">my
-                resume <img src="./image/download-icon.png" alt="" class="w-4"></a>
-        </div>
-    </div>
-
-    <!--- About me--->
-    <div id="about" class="w-full px-[12%] py-10 scroll-mt-20" data-aos="fade-up">
-        <h4 class="text-center mb-2 text-lg font-Ovo">Introduction</h4>
-        <h2 class="text-center text-5xl font-Ovo">About me</h2>
-
-        <div class="flex w-full flex-col lg:flex-row items-center lg:items-start gap-20 my-20">
-            <div class="max-w-max mx-auto relative">
-                <img src="./image/Noli_photo  (2).png" alt="" class="w-64 sm:w-80 rounded-3xl max-w-none">
-
-                <div
-                    class="bg-white w-1/2 aspect-square absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-1/3 shadow-[0_4px_55px_rgba(149,0,162,0.15)] flex items-center justify-center">
-                    <img src="./image/circular-text.png" alt="" class="w-full animate-spin_slow">
-                    <img src="./image/dev-icon.jpeg" alt=""
-                        class="w-1/4 absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-1/2">
+            <!-- Profile Avatar in Glass Halo -->
+            <div class="relative mb-6">
+                <div class="p-2 rounded-full glass-card inline-block shadow-xl">
+                    <img src="./image/Noli _Rounded(1).png" alt="Noli Jhon Mickael Garde" class="rounded-full w-28 h-28 sm:w-32 sm:h-32 object-cover border-2 border-white/90 dark:border-white/20 shadow-inner">
+                </div>
+                <div class="absolute -bottom-2 -right-2 glass-badge py-1 px-3 text-xs shadow-md">
+                    👋 <span>Mickael</span>
                 </div>
             </div>
-            <div class="flex-1">
-                <p class="mb-10 max-w-2xl font-Ovo">
-                    I am an experienced full stack developer with over a year of professional expertise in the field.
-                    Throughout my career, I have had
-                    the privilege of collaborating with prestigious organizations,
-                    contributing to their success and growth.
-                </p>
 
-                <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
-                    <li
-                        class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
-                        <img src="./image/code-icon.png" alt="" class="w-7 mt-3 dark:hidden">
-                        <img src="./image/code-icon-dark.png" alt="" class="w-7 mt-3 hidden dark:block">
+            <!-- Intro Tagline -->
+            <h2 class="text-lg sm:text-xl font-medium text-slate-600 dark:text-slate-300 mb-3 font-Outfit">
+                Hello, I am Mickael Garde
+            </h2>
 
-                        <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Languages</h3>
-                        <p class="text-gray-600 text-sm dark:text-white/80">HTML, CSS, JavaScript <br> React Js, Next
-                            Js, and more
-                        </p>
-                    </li>
+            <!-- Main Heading with Typed.js -->
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15] mb-6">
+                I build modern <br class="hidden sm:inline">
+                <span id="typed" class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent"></span>
+            </h1>
 
-                    <li
-                        class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
-                        <img src="./image/edu-icon.png" alt="" class="w-7 mt-3 dark:hidden">
-                        <img src="./image/edu-icon-dark.png" alt="" class="w-7 mt-3 hidden dark:block">
-                        <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Education</h3>
-                        <p class="text-gray-600 text-sm dark:text-white/80">BS in Information Technology</p>
-                    </li>
-                    <li
-                        class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
-                        <img src="./image/project-icon.png" alt="" class="w-7 mt-3 dark:hidden">
-                        <img src="./image/project-icon-dark.png" alt="" class="w-7 mt-3 hidden dark:block ">
-                        <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Projects</h3>
-                        <p class="text-gray-600 text-sm dark:text-white/80">Built more than 5 projects</p>
-                    </li>
-                </ul>
-                <h4 class="my-6 text-gray-700 font-Ovo dark:text-white/80">Tools i use</h4>
-                <ul class="flex items-center gap-3 sm:gap-5">
-                    <li
-                        class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500 dark:border-white/20">
-                        <img src="./image/vscode.png" alt="" class="w-5 sm:w-7">
-                    </li>
-                    <li
-                        class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500 dark:border-white/20">
-                        <img src="./image/firebase.png" alt="" class="w-5 sm:w-7">
-                    </li>
-                    <li
-                        class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500 dark:border-white/20">
-                        <img src="./image/mongodb.png" alt="" class="w-5 sm:w-7">
-                    </li>
-                    <li
-                        class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500 dark:border-white/20">
-                        <img src="./image/figma.png" alt="" class="w-5 sm:w-7">
-                    </li>
-                    <li
-                        class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500 dark:border-white/20">
-                        <img src="./image/git.png" alt="" class="w-5 sm:w-7">
-                    </li>
-                </ul>
+            <!-- Description -->
+            <p class="max-w-xl mx-auto text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
+                Frontend & Full-Stack developer based in Davao City, Philippines. Crafting responsive web architectures and sleek mobile experiences with glassmorphic aesthetics.
+            </p>
+
+            <!-- Hero Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-full font-semibold text-sm glass-btn-dark flex items-center justify-center gap-2 group">
+                    <span>Contact Me</span>
+                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+
+                <a href="./image/Garde,N_CV .pdf" download class="w-full sm:w-auto px-8 py-3.5 rounded-full font-semibold text-sm glass-btn-white flex items-center justify-center gap-2">
+                    <span>Download CV</span>
+                    <img src="./image/download-icon.png" alt="Download" class="w-4 h-4 opacity-80 dark:invert">
+                </a>
+            </div>
+
+            <!-- Quick Glass Highlight Metrics -->
+            <div class="grid grid-cols-3 gap-3 sm:gap-6 mt-12 w-full max-w-lg">
+                <div class="glass-card p-4 text-center">
+                    <p class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">2+</p>
+                    <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">Years Experience</p>
+                </div>
+                <div class="glass-card p-4 text-center">
+                    <p class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">5+</p>
+                    <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">Built Projects</p>
+                </div>
+                <div class="glass-card p-4 text-center">
+                    <p class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">100%</p>
+                    <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">Commitment</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="w-full px-4 sm:px-8 lg:px-[10%] py-24 scroll-mt-16" data-aos="fade-up">
+        <div class="text-center mb-16">
+            <span class="glass-badge mb-3">Introduction</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">About Me</h2>
+            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-4"></div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16 max-w-6xl mx-auto">
+            <!-- Left: Profile Photo Card with Glass Frame & Circular Badge -->
+            <div class="w-full max-w-sm sm:max-w-md mx-auto relative flex-shrink-0">
+                <div class="glass-card p-3 sm:p-4 shadow-2xl rounded-3xl">
+                    <img src="./image/Noli_photo  (2).png" alt="Noli Jhon Mickael Garde" class="w-full rounded-2xl object-cover aspect-[4/5] border border-white/60 dark:border-white/10">
+                </div>
+
+                <!-- Floating Rotating Glass Badge -->
+                <div class="glass-panel w-32 h-32 sm:w-36 sm:h-36 absolute -right-4 -bottom-6 rounded-full flex items-center justify-center p-2 shadow-2xl border-2 border-white/90 dark:border-white/20">
+                    <img src="./image/circular-text.png" alt="Developer text" class="w-full h-full animate-spin_slow select-none pointer-events-none dark:invert">
+                    <div class="w-10 h-10 rounded-full glass-card absolute flex items-center justify-center overflow-hidden border border-white/80">
+                        <img src="./image/dev-icon.jpeg" alt="Icon" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Bio and Glass Feature Cards -->
+            <div class="flex-1 space-y-8">
+                <div class="glass-card p-6 sm:p-8">
+                    <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-3">
+                        Passionate Full-Stack Developer & UI Enthusiast
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+                        I am an enthusiastic full-stack developer with over 2 years of professional expertise. I build reliable, high-performance web systems and fluid cross-platform mobile apps. My focus is on clean architecture, glassmorphic UI aesthetics, responsive design, and intuitive user experiences that deliver measurable results.
+                    </p>
+                </div>
+
+                <!-- 3 Highlights Glass Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+                    <div class="glass-card p-6 group cursor-pointer">
+                        <div class="w-12 h-12 rounded-xl glass-pill flex items-center justify-center mb-4 group-hover:scale-110 transition">
+                            <img src="./image/code-icon.png" alt="Languages" class="w-6 dark:hidden">
+                            <img src="./image/code-icon-dark.png" alt="Languages" class="w-6 hidden dark:block">
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-1">Languages</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">HTML, CSS, JavaScript, React, Next.js, Laravel</p>
+                    </div>
+
+                    <div class="glass-card p-6 group cursor-pointer">
+                        <div class="w-12 h-12 rounded-xl glass-pill flex items-center justify-center mb-4 group-hover:scale-110 transition">
+                            <img src="./image/edu-icon.png" alt="Education" class="w-6 dark:hidden">
+                            <img src="./image/edu-icon-dark.png" alt="Education" class="w-6 hidden dark:block">
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-1">Education</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">BS in Information Technology (Graduate)</p>
+                    </div>
+
+                    <div class="glass-card p-6 group cursor-pointer">
+                        <div class="w-12 h-12 rounded-xl glass-pill flex items-center justify-center mb-4 group-hover:scale-110 transition">
+                            <img src="./image/project-icon.png" alt="Projects" class="w-6 dark:hidden">
+                            <img src="./image/project-icon-dark.png" alt="Projects" class="w-6 hidden dark:block">
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-1">Projects</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Built 5+ production-grade web & mobile apps</p>
+                    </div>
+                </div>
+
+                <!-- Tools & Technologies Glass Strip -->
+                <div class="glass-card p-6">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">Core Tools & Tech Stack</h4>
+                    <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+                        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl glass-pill hover:scale-105 transition" title="VS Code">
+                            <img src="./image/vscode.png" alt="VS Code" class="w-5 h-5">
+                            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">VS Code</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl glass-pill hover:scale-105 transition" title="Firebase">
+                            <img src="./image/firebase.png" alt="Firebase" class="w-5 h-5">
+                            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Firebase</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl glass-pill hover:scale-105 transition" title="MongoDB">
+                            <img src="./image/mongodb.png" alt="MongoDB" class="w-5 h-5">
+                            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">MongoDB</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl glass-pill hover:scale-105 transition" title="Figma">
+                            <img src="./image/figma.png" alt="Figma" class="w-5 h-5">
+                            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Figma</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl glass-pill hover:scale-105 transition" title="Git">
+                            <img src="./image/git.png" alt="Git" class="w-5 h-5">
+                            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Git & GitHub</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- My Skills Section -->
-    <div class="w-full px-[12%] py-20" data-aos="fade-up">
-        <h2 class="text-center text-5xl font-Ovo mb-12">
-            My Skills
-        </h2>
-        <div class="space-y-6 max-w-2xl mx-auto">
+    <section id="skills" class="w-full px-4 sm:px-8 lg:px-[12%] py-24 scroll-mt-16" data-aos="fade-up">
+        <div class="text-center mb-16">
+            <span class="glass-badge mb-3">Expertise</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Technical Skills</h2>
+            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-4"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto glass-card p-6 sm:p-10 space-y-6">
+            <!-- Skill Item -->
             <div>
-                <p>HTML</p>
-                <div class="w-full bg-gray-200 rounded-full h-3">
-                    <div class="bg-purple-500 h-3 rounded-full w-[95%]"></div>
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-blue-500"></span> HTML5 & Semantic Web
+                    </span>
+                    <span class="text-xs font-semibold glass-badge px-2.5 py-0.5">95%</span>
+                </div>
+                <div class="w-full glass-progress-track h-3">
+                    <div class="glass-progress-fill h-3 w-[95%]"></div>
                 </div>
             </div>
+
+            <!-- Skill Item -->
             <div>
-                <p>CSS / Tailwind</p>
-                <div class="w-full bg-gray-200 rounded-full h-3">
-                    <div class="bg-purple-500 h-3 rounded-full w-[90%]"></div>
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-indigo-500"></span> CSS3 / Tailwind CSS / Glassmorphism
+                    </span>
+                    <span class="text-xs font-semibold glass-badge px-2.5 py-0.5">92%</span>
+                </div>
+                <div class="w-full glass-progress-track h-3">
+                    <div class="glass-progress-fill h-3 w-[92%]"></div>
                 </div>
             </div>
+
+            <!-- Skill Item -->
             <div>
-                <p>JavaScript</p>
-                <div class="w-full bg-gray-200 rounded-full h-3">
-                    <div class="bg-purple-500 h-3 rounded-full w-[80%]"></div>
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-yellow-500"></span> JavaScript (ES6+) & React.js
+                    </span>
+                    <span class="text-xs font-semibold glass-badge px-2.5 py-0.5">85%</span>
+                </div>
+                <div class="w-full glass-progress-track h-3">
+                    <div class="glass-progress-fill h-3 w-[85%]"></div>
                 </div>
             </div>
+
+            <!-- Skill Item -->
             <div>
-                <p>Laravel</p>
-                <div class="w-full bg-gray-200 rounded-full h-3">
-                    <div class="bg-purple-500 h-3 rounded-full w-[60%]"></div>
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-red-500"></span> Laravel & PHP Backend Architecture
+                    </span>
+                    <span class="text-xs font-semibold glass-badge px-2.5 py-0.5">75%</span>
+                </div>
+                <div class="w-full glass-progress-track h-3">
+                    <div class="glass-progress-fill h-3 w-[75%]"></div>
                 </div>
             </div>
+
+            <!-- Skill Item -->
             <div>
-                <p>Flutter</p>
-                <div class="w-full bg-gray-200 rounded-full h-3">
-                    <div class="bg-purple-500 h-3 rounded-full w-[75%]"></div>
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-cyan-500"></span> Flutter & Dart Mobile App Development
+                    </span>
+                    <span class="text-xs font-semibold glass-badge px-2.5 py-0.5">80%</span>
+                </div>
+                <div class="w-full glass-progress-track h-3">
+                    <div class="glass-progress-fill h-3 w-[80%]"></div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!--- Services --->
-    <div id="services" class="w-full px-[12%] py-20 scroll-mt-20" data-aos="fade-up">
-        <h4 class="text-center mb-2 text-lg font-Ovo">What i offer</h4>
-        <h2 class="text-center text-5xl font-Ovo">My Services</h2>
-        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">I am a frontend web developer specializing in
-            creating
-            responsive and user-friendly websites using modern web technologies.</p>
+    <!-- Services Section -->
+    <section id="services" class="w-full px-4 sm:px-8 lg:px-[10%] py-24 scroll-mt-16" data-aos="fade-up">
+        <div class="text-center mb-16">
+            <span class="glass-badge mb-3">Offerings</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Services I Provide</h2>
+            <p class="text-slate-600 dark:text-slate-300 max-w-xl mx-auto mt-4 text-sm sm:text-base leading-relaxed">
+                Specialized in delivering performant, user-centric web and mobile applications with bespoke modern designs.
+            </p>
+            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-4"></div>
+        </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-10">
-            <div
-                class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
-                <img src="./image/web-icon.png" alt="" class="w-10">
-                <h3 class="text-lg my-4 text-gray-700 dark:text-white">Web design</h3>
-                <p class="text-sm text-gray-600 leading-5 dark:text-white/80">Web development is the process of
-                    building, programming</p>
-                <a href="" class="flex items-center gap-2 text-sm mt-5">Read more <img
-                        src="./image/right-arrow-bold.png" alt="" class="w-4 dark:hidden">
-                    <img src="./image/right-arrow-bold-dark.png" alt="" class="w-4 hidden dark:block">
-                </a>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <!-- Service 1 -->
+            <div class="glass-card p-8 flex flex-col justify-between group cursor-pointer" onclick="openServiceModal('web')">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl glass-pill flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
+                        <img src="./image/web-icon.png" alt="Web Development" class="w-7 h-7">
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Web Design & Dev</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                        Building responsive, accessible, and fast web experiences using modern technologies and glassmorphic UI.
+                    </p>
+                </div>
+                <button type="button" class="inline-flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400 group-hover:gap-3 transition-all">
+                    Learn more
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </button>
             </div>
 
-            <div
-                class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
-                <img src="./image/mobile-icon.png" alt="" class="w-10">
-                <h3 class="text-lg my-4 text-gray-700 dark:text-white">Mobile app</h3>
-                <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
-                    Mobile app development is the process of
-                    building, programming</p>
-                <a href="" class="flex items-center gap-2 text-sm mt-5">Read more <img
-                        src="./image/right-arrow-bold.png" alt="" class="w-4 dark:hidden">
-                    <img src="./image/right-arrow-bold-dark.png" alt="" class="w-4 hidden dark:block">
-                </a>
+            <!-- Service 2 -->
+            <div class="glass-card p-8 flex flex-col justify-between group cursor-pointer" onclick="openServiceModal('mobile')">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl glass-pill flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
+                        <img src="./image/mobile-icon.png" alt="Mobile Apps" class="w-7 h-7">
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Mobile Apps</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                        Cross-platform mobile apps built with Flutter & Firebase offering fluid animations and offline sync.
+                    </p>
+                </div>
+                <button type="button" class="inline-flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400 group-hover:gap-3 transition-all">
+                    Learn more
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </button>
             </div>
 
-            <div
-                class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
-                <img src="./image/ui-icon.png" alt="" class="w-10">
-                <h3 class="text-lg my-4 text-gray-700 dark:text-white">UI/ UX design</h3>
-                <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
-                    UI/UX design is the process of
-                    building, programming</p>
-                <a href="" class="flex items-center gap-2 text-sm mt-5">Read more <img
-                        src="./image/right-arrow-bold.png" alt="" class="w-4 dark:hidden">
-                    <img src="./image/right-arrow-bold-dark.png" alt="" class="w-4 hidden dark:block">
-                </a>
+            <!-- Service 3 -->
+            <div class="glass-card p-8 flex flex-col justify-between group cursor-pointer" onclick="openServiceModal('ui')">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl glass-pill flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
+                        <img src="./image/ui-icon.png" alt="UI/UX Design" class="w-7 h-7">
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">UI/UX Design</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                        Creating modern frosted glass interfaces, wireframes, and prototypes with high-converting user journeys.
+                    </p>
+                </div>
+                <button type="button" class="inline-flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400 group-hover:gap-3 transition-all">
+                    Learn more
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </button>
             </div>
 
-            <div
-                class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
-                <img src="./image/graphics-icon.png" alt="" class="w-10">
-                <h3 class="text-lg my-4 text-gray-700 dark:text-white">Graphics design</h3>
-                <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
-                    Graphics design is the process of
-                    building, programming</p>
-                <a href="" class="flex items-center gap-2 text-sm mt-5">Read more <img
-                        src="./image/right-arrow-bold.png" alt="" class="w-4 dark:hidden">
-                    <img src="./image/right-arrow-bold-dark.png" alt="" class="w-4 hidden dark:block">
-                </a>
+            <!-- Service 4 -->
+            <div class="glass-card p-8 flex flex-col justify-between group cursor-pointer" onclick="openServiceModal('graphics')">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl glass-pill flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
+                        <img src="./image/graphics-icon.png" alt="Graphics Design" class="w-7 h-7">
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Graphic & Brand</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                        Designing standout digital identities, logos, and custom marketing graphics that strengthen digital presence.
+                    </p>
+                </div>
+                <button type="button" class="inline-flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400 group-hover:gap-3 transition-all">
+                    Learn more
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </button>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!--- My work --->
-    <div id="work" class="w-full px-[12%] py-20 scroll-mt-20" data-aos="fade-up">
-        <h4 class="text-center mb-2 text-lg font-Ovo">My work</h4>
-        <h2 class="text-center text-5xl font-Ovo">My Portfolio</h2>
-        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">Here are some of my recent projects that showcase
-            my skills
-            and expertise in front-end web development.</p>
+    <!-- My Work / Portfolio Section -->
+    <section id="work" class="w-full px-4 sm:px-8 lg:px-[10%] py-24 scroll-mt-16" data-aos="fade-up">
+        <div class="text-center mb-16">
+            <span class="glass-badge mb-3">Portfolio</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Featured Projects</h2>
+            <p class="text-slate-600 dark:text-slate-300 max-w-xl mx-auto mt-4 text-sm sm:text-base leading-relaxed">
+                A selection of web systems and mobile applications I've engineered with modern web technologies.
+            </p>
+            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-4"></div>
+        </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 my-10 gap-5 dark:text-black">
-            <div
-                class="bg-white dark:bg-darkHover dark:text-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 duration-500 border border-gray-200 dark:border-white/10">
-                <img src="./image/Ascend.jpg" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold">
-                        Ascend
-                    </h3>
-                    <p class="text-sm mt-2 text-gray-700 dark:text-white/80">
-                        A school management system that allows admins, students, and parents
-                        to manage announcements, records, and communication.
-                    </p>
-                    <p class="text-sm mt-3 text-purple-500 font-medium">
-                        XAMPP • MySQL • PHP
-                    </p>
-                    <div class="flex gap-4 mt-4">
-                        <a href="#"
-                            class="px-4 py-2 bg-black text-white rounded-lg text-sm dark:bg-white dark:text-black hover:bg-gray-800 transition">
-                            Live Demo
-                        </a>
-                        <a href="#"
-                            class="px-4 py-2 border rounded-lg text-sm dark:border-white/50 hover:bg-gray-50 dark:hover:bg-white/10 transition">
-                            Github
-                        </a>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            
+            <!-- Project 1: Ascend -->
+            <div class="glass-card flex flex-col justify-between group overflow-hidden">
+                <div>
+                    <div class="relative h-48 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
+                        <img src="./image/Ascend.jpg" alt="Ascend" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                        <span class="absolute top-3 left-3 glass-badge text-[11px] py-1 px-3">School Portal</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Ascend</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                            School management platform enabling administrative broadcasts, student records, and gradebook tracking.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            <span class="glass-badge text-[10px] py-0.5 px-2">PHP</span>
+                            <span class="glass-badge text-[10px] py-0.5 px-2">MySQL</span>
+                            <span class="glass-badge text-[10px] py-0.5 px-2">XAMPP</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div
-                class="bg-white dark:bg-darkHover dark:text-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 duration-500 border border-gray-200 dark:border-white/10">
-                <img src="./image/Sukati1.png" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold">
-                        Sukati
-                    </h3>
-                    <p class="text-sm mt-2 text-gray-700 dark:text-white/80">
-                        A tailor management system that allows tailors
-                        to manage their clients, orders, and measurements.
-                    </p>
-                    <p class="text-sm mt-3 text-purple-500 font-medium">
-                        Flutter • Firebase • Dart
-                    </p>
-                    <div class="flex gap-4 mt-4">
-                        <button onclick="openProjectModal('sukati')"
-                            class="px-4 py-2 border rounded-lg text-sm dark:border-white/50 hover:bg-gray-50 dark:hover:bg-white/10 transition cursor-pointer">
-                            Info
-                        </button>
-                        <a href="https://drive.google.com/file/d/19bipxLfbKHmhHjDSnlfBXKhHBs8PzOPK/view?usp=drive_link" target="_blank" rel="noopener noreferrer"
-                            class="px-4 py-2 bg-black text-white rounded-lg text-sm dark:bg-white dark:text-black hover:bg-gray-800 transition">
-                            Live Demo
-                        </a>
-                    </div>
+                <div class="px-6 pb-6 pt-0 flex items-center gap-2 border-t border-slate-200/40 dark:border-white/5 pt-4">
+                    <button onclick="openProjectModal('ascend')" class="flex-1 py-2 rounded-xl text-xs font-semibold glass-btn-white text-center">
+                        Details
+                    </button>
+                    <a href="https://github.com/MicKilldev" target="_blank" rel="noopener noreferrer" class="py-2 px-3 rounded-xl text-xs font-semibold glass-btn-dark inline-flex items-center justify-center" aria-label="GitHub">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                    </a>
                 </div>
             </div>
 
-            <div
-                class="bg-white dark:bg-darkHover dark:text-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 duration-500 border border-gray-200 dark:border-white/10">
-                <img src="./image/BlueBalud1.png" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold">
-                        BlueBalud
-                    </h3>
-                    <p class="text-sm mt-2 text-gray-700 dark:text-white/80">
-                        A educational App that allows student physicists, engineers, and chemists
-                        to learn and practice their skills.
-                    </p>
-                    <p class="text-sm mt-3 text-purple-500 font-medium">
-                        Flutter • Firebase • Dart
-                    </p>
-                    <div class="flex gap-4 mt-4">
-                        <a href="#"
-                            class="px-4 py-2 bg-black text-white rounded-lg text-sm dark:bg-white dark:text-black hover:bg-gray-800 transition">
-                            Live Demo
-                        </a>
-                        <a href="#"
-                            class="px-4 py-2 border rounded-lg text-sm dark:border-white/50 hover:bg-gray-50 dark:hover:bg-white/10 transition">
-                            Github
-                        </a>
+            <!-- Project 2: Sukati -->
+            <div class="glass-card flex flex-col justify-between group overflow-hidden">
+                <div>
+                    <div class="relative h-48 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
+                        <img src="./image/Sukati1.png" alt="Sukati" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                        <span class="absolute top-3 left-3 glass-badge text-[11px] py-1 px-3">Tailor App</span>
                     </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Sukati</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                            Tailor suite app managing client measurements, bespoke cutting orders, and fitting schedules.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            <span class="glass-badge text-[10px] py-0.5 px-2">Flutter</span>
+                            <span class="glass-badge text-[10px] py-0.5 px-2">Firebase</span>
+                            <span class="glass-badge text-[10px] py-0.5 px-2">Dart</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 pb-6 pt-0 flex items-center gap-2 border-t border-slate-200/40 dark:border-white/5 pt-4">
+                    <button onclick="openProjectModal('sukati')" class="flex-1 py-2 rounded-xl text-xs font-semibold glass-btn-white text-center">
+                        Details
+                    </button>
+                    <a href="https://drive.google.com/file/d/19bipxLfbKHmhHjDSnlfBXKhHBs8PzOPK/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="py-2 px-4 rounded-xl text-xs font-semibold glass-btn-dark inline-flex items-center gap-1">
+                        Demo
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
                 </div>
             </div>
 
-            <div
-                class="bg-white dark:bg-darkHover dark:text-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 duration-500 border border-gray-200 dark:border-white/10">
-                <img src="./image/KwartaTala.png" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold">
-                        KwartaTala
-                    </h3>
-                    <p class="text-sm mt-2 text-gray-700 dark:text-white/80">
-                        A finance management system that allows users
-                        to manage their finances.
-                    </p>
-                    <p class="text-sm mt-3 text-purple-500 font-medium">
-                        React • Javascript • Tailwind
-                    </p>
-                    <div class="flex gap-4 mt-4">
-                        <a href="https://drive.google.com/file/d/1RAVBw-h2l9pWBg2MCVj3_8wsADl3QO6s/view?usp=sharing"
-                            class="px-4 py-2 bg-black text-white rounded-lg text-sm dark:bg-white dark:text-black hover:bg-gray-800 transition">
-                            Live Demo
-                        </a>
-                        <a href="#"
-                            class="px-4 py-2 border rounded-lg text-sm dark:border-white/50 hover:bg-gray-50 dark:hover:bg-white/10 transition">
-                            Github
-                        </a>
+            <!-- Project 3: BlueBalud -->
+            <div class="glass-card flex flex-col justify-between group overflow-hidden">
+                <div>
+                    <div class="relative h-48 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
+                        <img src="./image/BlueBalud1.png" alt="BlueBalud" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                        <span class="absolute top-3 left-3 glass-badge text-[11px] py-1 px-3">STEM Education</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">BlueBalud</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                            Interactive learning app for students to master physics, engineering formulas, and science problems.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            <span class="glass-badge text-[10px] py-0.5 px-2">Flutter</span>
+                            <span class="glass-badge text-[10px] py-0.5 px-2">Dart</span>
+                            <span class="glass-badge text-[10px] py-0.5 px-2">Firebase</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <a href="#"
-        class="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500 dark:text-white dark:border-white dark:hover:bg-darkHover">Show
-        more
-        <img src="./image/right-arrow-bold.png" alt="" class="w-4 dark:hidden">
-        <img src="./image/right-arrow-bold-dark.png" alt="" class="w-4 hidden dark:block">
-    </a>
-    </div>
-
-
-    <!--- Contact --->
-    <div id="contact" class="w-full px-[12%] py-20 scroll-mt-20 dark:bg-none">
-        <h4 class="text-center mb-2 text-lg font-Ovo">Contact with me</h4>
-        <h2 class="text-center text-5xl font-Ovo">Get in touch</h2>
-        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">i'd love to hear from you! if you have feedback,
-            please use
-            the form below.</p>
-
-        <form id="contactForm" method="POST" action="https://api.web3forms.com/submit" class="max-w-2xl mx-auto">
-
-            <input type="hidden" name="access_key" value="900b2860-857a-47ee-9731-5653928b2842">
-            <!-- Web3Forms Honeypot -->
-            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10 mb-8">
-                <input type="text" placeholder="Enter your name"
-                    class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90"
-                    required name="name">
-
-                <input type="email" placeholder="Enter your email"
-                    class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90"
-                    required name="email">
+                <div class="px-6 pb-6 pt-0 flex items-center gap-2 border-t border-slate-200/40 dark:border-white/5 pt-4">
+                    <button onclick="openProjectModal('bluebalud')" class="flex-1 py-2 rounded-xl text-xs font-semibold glass-btn-white text-center">
+                        Details
+                    </button>
+                    <a href="https://github.com/MicKilldev" target="_blank" rel="noopener noreferrer" class="py-2 px-3 rounded-xl text-xs font-semibold glass-btn-dark inline-flex items-center justify-center" aria-label="GitHub">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                    </a>
+                </div>
             </div>
 
-            <textarea rows="6" placeholder="Enter your message"
-                class="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 dark:bg-darkHover/30 dark:border-white/90"
-                required name="message"></textarea>
-
-            <button type="submit"
-                class="py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover">Submit
-                now <img src="./image/right-arrow-white.png" alt="" class="w-4 dark:hidden">
-                <img src="./image/right-arrow-bold.png" alt="" class="w-4 hidden dark:block">
-            </button>
-        </form>
-    </div>
-
-    <!--- Footer -->
-    <div class="mt-20">
-        <div class="text-center">
-            <img src="./image/logo1.png" alt="" class="w-36 mx-auto mb-2 dark:hidden">
-            <img src="./image/logo_dark.png" alt="" class="w-36 mx-auto mb-2 hidden dark:block">
-
-            <div class="w-max flex items-center gap-2 mx-auto">
-                <img src="./image/mail_icon.png" alt="" class="w-6 dark:hidden">
-                <img src="./image/mail_icon_dark.png" alt="" class="w-6 hidden dark:block">
-
-                mickaelgarde143@gmail.com
+            <!-- Project 4: KwartaTala -->
+            <div class="glass-card flex flex-col justify-between group overflow-hidden">
+                <div>
+                    <div class="relative h-48 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
+                        <img src="./image/KwartaTala.png" alt="KwartaTala" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                        <span class="absolute top-3 left-3 glass-badge text-[11px] py-1 px-3">FinTech Web</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">KwartaTala</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                            Personal finance & expense manager with budgeting intelligence and visual spending breakdowns.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            <span class="glass-badge text-[10px] py-0.5 px-2">React</span>
+                            <span class="glass-badge text-[10px] py-0.5 px-2">Tailwind</span>
+                            <span class="glass-badge text-[10px] py-0.5 px-2">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 pb-6 pt-0 flex items-center gap-2 border-t border-slate-200/40 dark:border-white/5 pt-4">
+                    <button onclick="openProjectModal('kwartatala')" class="flex-1 py-2 rounded-xl text-xs font-semibold glass-btn-white text-center">
+                        Details
+                    </button>
+                    <a href="https://drive.google.com/file/d/1RAVBw-h2l9pWBg2MCVj3_8wsADl3QO6s/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="py-2 px-4 rounded-xl text-xs font-semibold glass-btn-dark inline-flex items-center gap-1">
+                        Demo
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                </div>
             </div>
+
         </div>
 
-        <div class="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6">
-            <p>© 2026 Mickael Garde. All rights reserved.</p>
-            <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
-                <li><a href="https://www.instagram.com/garde.mickael/ " target="_blank"
-                        rel="noopener noreferrer">Instagram</a></li>
-                <li><a href="https://www.facebook.com/mickael.garde.16" target="_blank"
-                        rel="noopener noreferrer">Facebook</a></li>
-                <li><a href="https://github.com/MicKilldev" target="_blank" rel="noopener noreferrer">Github</a></li>
-                <li><a href="https://www.linkedin.com/in/noli-jhon-mickael-garde-635b30394/" target="_blank"
-                        rel="noopener noreferrer">Linkedin</a></li>
+        <!-- View More on GitHub CTA -->
+        <div class="mt-14 text-center">
+            <a href="https://github.com/MicKilldev" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-sm glass-pill hover:scale-105 transition">
+                <span>See More on GitHub</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
         </div>
-    </div>
+    </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="w-full px-4 sm:px-8 lg:px-[12%] py-24 scroll-mt-16" data-aos="fade-up">
+        <div class="text-center mb-16">
+            <span class="glass-badge mb-3">Connect</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Get In Touch</h2>
+            <p class="text-slate-600 dark:text-slate-300 max-w-xl mx-auto mt-4 text-sm sm:text-base leading-relaxed">
+                Have an exciting project, open position, or just want to say hi? Drop me a message below.
+            </p>
+            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-4"></div>
+        </div>
 
+        <div class="max-w-4xl mx-auto glass-panel p-6 sm:p-12 border border-white/80 dark:border-white/10 shadow-2xl">
+            <!-- Contact Quick Chips -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 pb-8 border-b border-slate-200/50 dark:border-white/10">
+                <div class="glass-card p-4 text-center">
+                    <span class="text-xs font-semibold uppercase text-slate-400 block mb-1">Email Me</span>
+                    <a href="mailto:mickaelgarde143@gmail.com" class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white hover:text-blue-500 transition break-all">
+                        mickaelgarde143@gmail.com
+                    </a>
+                </div>
+                <div class="glass-card p-4 text-center">
+                    <span class="text-xs font-semibold uppercase text-slate-400 block mb-1">Location</span>
+                    <span class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white">Davao City, Philippines</span>
+                </div>
+                <div class="glass-card p-4 text-center">
+                    <span class="text-xs font-semibold uppercase text-slate-400 block mb-1">Response Time</span>
+                    <span class="text-xs sm:text-sm font-bold text-emerald-600 dark:text-emerald-400">Within 24 Hours</span>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <form id="contactForm" method="POST" action="https://api.web3forms.com/submit" class="space-y-6">
+                <input type="hidden" name="access_key" value="900b2860-857a-47ee-9731-5653928b2842">
+                <!-- Honeypot -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Your Name</label>
+                        <input type="text" placeholder="John Doe" required name="name"
+                            class="w-full p-4 rounded-xl glass-input text-sm text-slate-800 dark:text-white placeholder-slate-400 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Your Email</label>
+                        <input type="email" placeholder="john@example.com" required name="email"
+                            class="w-full p-4 rounded-xl glass-input text-sm text-slate-800 dark:text-white placeholder-slate-400 outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Your Message</label>
+                    <textarea rows="5" placeholder="Tell me about your project, timeline, or idea..." required name="message"
+                        class="w-full p-4 rounded-xl glass-input text-sm text-slate-800 dark:text-white placeholder-slate-400 outline-none resize-none"></textarea>
+                </div>
+
+                <div class="text-center pt-2">
+                    <button type="submit" class="px-10 py-4 rounded-full font-semibold text-sm glass-btn-dark inline-flex items-center gap-3 group">
+                        <span>Send Message</span>
+                        <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full pt-16 pb-12 px-4 sm:px-8 border-t border-white/60 dark:border-white/10 mt-12">
+        <div class="max-w-6xl mx-auto flex flex-col items-center">
+            
+            <a href="#top" class="mb-6 p-2 glass-pill inline-block hover:scale-105 transition">
+                <img src="./image/logo1.png" alt="Mickael Garde" class="h-9 w-auto dark:hidden">
+                <img src="./image/logo_dark.png" alt="Mickael Garde" class="h-9 w-auto hidden dark:block">
+            </a>
+
+            <!-- Social Links in Glass Pills -->
+            <ul class="flex flex-wrap items-center justify-center gap-3 mb-8">
+                <li>
+                    <a href="https://github.com/MicKilldev" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full text-xs font-semibold glass-pill inline-flex items-center gap-2 hover:scale-105 transition">
+                        <span>GitHub</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/noli-jhon-mickael-garde-635b30394/" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full text-xs font-semibold glass-pill inline-flex items-center gap-2 hover:scale-105 transition">
+                        <span>LinkedIn</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/garde.mickael/" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full text-xs font-semibold glass-pill inline-flex items-center gap-2 hover:scale-105 transition">
+                        <span>Instagram</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/mickael.garde.16" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full text-xs font-semibold glass-pill inline-flex items-center gap-2 hover:scale-105 transition">
+                        <span>Facebook</span>
+                    </a>
+                </li>
+            </ul>
+
+            <p class="text-xs text-slate-500 dark:text-slate-400 text-center">
+                © 2026 Mickael Garde. Crafted with modern glassmorphism. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({
-            duration: 1000,
-            once: true
+            duration: 800,
+            once: true,
+            offset: 40
         });
 
+        // Initialize Typed.js with modern titles
         var typed = new Typed("#typed", {
             strings: [
-                "Full Stack Developer",
-                "Laravel Developer",
-                "Frontend Developer",
-                "React Developer",
-                "Flutter Developer"
+                "Full Stack Applications",
+                "Frontend Interfaces",
+                "Flutter Mobile Apps",
+                "Laravel Systems",
+                "Glassmorphic Experiences"
             ],
-            typeSpeed: 60,
-            backSpeed: 40,
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 1600,
             loop: true
         });
-
-        const cursor = document.createElement("div");
-        cursor.style.position = "fixed";
-        cursor.style.width = "20px";
-        cursor.style.height = "20px";
-        cursor.style.background = "purple";
-        cursor.style.borderRadius = "50%";
-        cursor.style.pointerEvents = "none";
-        cursor.style.opacity = "0.6";
-        cursor.style.filter = "blur(6px)";
-        cursor.style.zIndex = "9999";
-        document.body.appendChild(cursor);
-
-        document.addEventListener("mousemove", e => {
-            cursor.style.left = e.clientX + "px";
-            cursor.style.top = e.clientY + "px";
-        });
     </script>
-    <script src="./script.js"></script>
+    <script src="./script.js?v=3"></script>
 </body>
 
 </html>
