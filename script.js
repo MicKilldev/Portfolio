@@ -49,8 +49,8 @@ const projectData = {
         subtitle: "AgriTech Corporate Web Platform",
         description: "A commercial digital export portal connecting agricultural producers, cooperative farmers, and international markets. Features responsive product showcasing, fresh produce catalog categorization, buyer sourcing pipelines, and enterprise inquiry flows built for global agribusiness trade.",
         stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js"],
-        image: "./image/avante-website.jpg",
-        demoUrl: "https://github.com/MicKilldev/avante-website",
+        image: "./image/avante-agriusa.png",
+        demoUrl: "https://www.avanteagri-usa.com",
         githubUrl: "https://github.com/MicKilldev/avante-website"
     },
     sidlak: {
