@@ -44,32 +44,50 @@ function toggleTheme() {
 
 // Project Details Data
 const projectData = {
-    ascend: {
-        title: "Ascend — School Management System",
-        subtitle: "Enterprise Academic Ecosystem",
-        description: "A comprehensive, multi-tenant school portal engineered to bridge educators, students, and parents. Features real-time gradebooks, automated institutional announcements, attendance monitoring, and administrative record indexing built for speed and reliability.",
-        stack: ["PHP", "MySQL", "XAMPP", "JavaScript", "Bootstrap"],
-        image: "./image/Ascend.jpg",
-        demoUrl: "#",
-        githubUrl: "https://github.com/MicKilldev"
+    avante: {
+        title: "Avante Agri-Products USA — Global Export Platform",
+        subtitle: "AgriTech Corporate Web Platform",
+        description: "A commercial digital export portal connecting agricultural producers, cooperative farmers, and international markets. Features responsive product showcasing, fresh produce catalog categorization, buyer sourcing pipelines, and enterprise inquiry flows built for global agribusiness trade.",
+        stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js"],
+        image: "./image/avante-website.jpg",
+        demoUrl: "https://github.com/MicKilldev/avante-website",
+        githubUrl: "https://github.com/MicKilldev/avante-website"
     },
-    sukati: {
-        title: "Sukati — Tailor & Client Management",
-        subtitle: "Bespoke Fashion Workflow App",
-        description: "A dedicated mobile platform crafted for professional tailors and atelier owners to seamlessly manage client measurement records, cutting orders, fabric inventory, and fitting milestones with real-time Firebase cloud synchronization.",
-        stack: ["Flutter", "Dart", "Firebase", "Cloud Firestore"],
-        image: "./image/Sukati1.png",
-        demoUrl: "https://drive.google.com/file/d/19bipxLfbKHmhHjDSnlfBXKhHBs8PzOPK/view?usp=drive_link",
-        githubUrl: "https://github.com/MicKilldev"
+    sidlak: {
+        title: "Sidlak Beach Resort — Reservation & Management System",
+        subtitle: "Luxury Hospitality Management",
+        description: "Comprehensive resort reservation and hospitality operations ecosystem for Sidlak Beach Resort. Includes guest villa booking calendar, dynamic accommodation rates, real-time check-in and checkout pipelines, administrative revenue analytics, and customer payment processing.",
+        stack: ["Laravel", "PHP", "Blade", "MySQL", "Tailwind CSS"],
+        image: "./image/SidlakResort.jpg",
+        demoUrl: "https://github.com/nathaliepareja25/sidlak",
+        githubUrl: "https://github.com/nathaliepareja25/sidlak"
     },
-    bluebalud: {
-        title: "BlueBalud — Interactive STEM Learning",
-        subtitle: "Gamified Science & Engineering Platform",
-        description: "An educational mobile application tailored for university physicists, engineers, and chemists. Provides interactive physics formula models, step-by-step problem exercises, practice quizzes, and offline-first performance tracking.",
-        stack: ["Flutter", "Dart", "Firebase", "State Management"],
-        image: "./image/BlueBalud1.png",
-        demoUrl: "https://github.com/MicKilldev",
-        githubUrl: "https://github.com/MicKilldev"
+    logicguard: {
+        title: "LogicGuard PH — AI Logic & Fact Auditor",
+        subtitle: "Formal Logic & Soundness Analyzer",
+        description: "An innovative mobile application that turns smartphones into a 'Logic Microscope'. Developed in Flutter, it empowers Filipino students, educators, and citizens to mathematically audit the validity of news headlines, viral claims, and political arguments using truth tables, AI natural language processing, and logical fallacy detection algorithms.",
+        stack: ["Flutter", "Dart", "Gemini AI", "NLP", "Android"],
+        image: "./image/LogicGuard.jpg",
+        demoUrl: "https://github.com/MicKilldev/logicguardph",
+        githubUrl: "https://github.com/MicKilldev/logicguardph"
+    },
+    rangewise: {
+        title: "RangeWise EV — Smart Electric Vehicle Suite",
+        subtitle: "EV Range & Battery Intelligence",
+        description: "An intelligent EV companion and battery health analytics mobile application. Provides drivers with hyper-accurate range forecasting based on route topography, regenerative braking energy harvest tracking, nearby charging station route planning, and vehicle maintenance logging.",
+        stack: ["Flutter", "Dart", "Firebase", "State Management", "Android"],
+        image: "./image/RangeWise.jpg",
+        demoUrl: "https://github.com/WenDEVLIFE/rangewise",
+        githubUrl: "https://github.com/WenDEVLIFE/rangewise"
+    },
+    todonato: {
+        title: "To Do Na To — Smart Productivity Suite",
+        subtitle: "Task & Schedule Optimizer",
+        description: "A streamlined, user-friendly task and schedule management mobile application. Features priority categorization, recurring routine reminders, scheduled background notifications, cloud synchronization, and completion velocity insights to keep daily workflows structured and productive.",
+        stack: ["Flutter", "Dart", "Firebase", "SQLite", "Local Notifications"],
+        image: "./image/to_do_na_to.png",
+        demoUrl: "https://github.com/MicKilldev/to_do_na_to",
+        githubUrl: "https://github.com/MicKilldev/to_do_na_to"
     },
     kwartatala: {
         title: "KwartaTala — Financial Intelligence",
@@ -78,9 +96,62 @@ const projectData = {
         stack: ["React", "JavaScript", "Tailwind CSS", "Vite"],
         image: "./image/KwartaTala.png",
         demoUrl: "https://drive.google.com/file/d/1RAVBw-h2l9pWBg2MCVj3_8wsADl3QO6s/view?usp=sharing",
-        githubUrl: "https://github.com/MicKilldev"
+        githubUrl: "https://github.com/MicKilldev/KwartaTala"
+    },
+    sukati: {
+        title: "Sukati — Tailor & Client Management",
+        subtitle: "Bespoke Fashion Workflow App",
+        description: "A dedicated mobile platform crafted for professional tailors and atelier owners to seamlessly manage client measurement records, cutting orders, fabric inventory, and fitting milestones with real-time Firebase cloud synchronization.",
+        stack: ["Flutter", "Dart", "Firebase", "Cloud Firestore"],
+        image: "./image/Sukati1.png",
+        demoUrl: "https://drive.google.com/file/d/19bipxLfbKHmhHjDSnlfBXKhHBs8PzOPK/view?usp=drive_link",
+        githubUrl: "https://github.com/MicKilldev/sukati"
+    },
+    bluebalud: {
+        title: "BlueBalud — Interactive STEM Learning",
+        subtitle: "Gamified Science & Engineering Platform",
+        description: "An educational mobile application tailored for university physicists, engineers, and chemists. Provides interactive physics formula models, step-by-step problem exercises, practice quizzes, and offline-first performance tracking.",
+        stack: ["Flutter", "Dart", "Firebase", "State Management"],
+        image: "./image/BlueBalud1.png",
+        demoUrl: "https://github.com/MicKilldev/BlueBalud",
+        githubUrl: "https://github.com/MicKilldev/BlueBalud"
+    },
+    ascend: {
+        title: "Ascend — School Management System",
+        subtitle: "Enterprise Academic Ecosystem",
+        description: "A comprehensive, multi-tenant school portal engineered to bridge educators, students, and parents. Features real-time gradebooks, automated institutional announcements, attendance monitoring, and administrative record indexing built for speed and reliability.",
+        stack: ["PHP", "MySQL", "XAMPP", "JavaScript", "Bootstrap"],
+        image: "./image/Ascend.jpg",
+        demoUrl: "https://github.com/MicKilldev/Ascend",
+        githubUrl: "https://github.com/MicKilldev/Ascend"
     }
 };
+
+// Filter Projects by Category
+function filterProjects(category) {
+    // update buttons active state
+    document.querySelectorAll('.project-filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-filter') === category) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
+    // filter cards
+    const cards = document.querySelectorAll('.project-card-item');
+    cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (category === 'all' || cardCategory === category) {
+            card.classList.remove('hidden-project');
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        } else {
+            card.classList.add('hidden-project');
+        }
+    });
+}
+
 
 // Services Data
 const serviceData = {
