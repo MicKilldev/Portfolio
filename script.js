@@ -127,6 +127,23 @@ const projectData = {
     }
 };
 
+// Slide Projects on Mobile
+function slideProjects(direction) {
+    const container = document.getElementById('projectsContainer');
+    if (!container) return;
+    const visibleCards = container.querySelectorAll('.project-card-item:not(.hidden-project)');
+    if (!visibleCards.length) return;
+    const cardWidth = visibleCards[0].offsetWidth;
+    const gap = 20;
+    const scrollAmount = cardWidth + gap;
+
+    if (direction === 'next') {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    } else {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    }
+}
+
 // Filter Projects by Category
 function filterProjects(category) {
     // update buttons active state
@@ -139,6 +156,7 @@ function filterProjects(category) {
     });
 
     // filter cards
+    let visibleCount = 0;
     const cards = document.querySelectorAll('.project-card-item');
     cards.forEach(card => {
         const cardCategory = card.getAttribute('data-category');
@@ -146,11 +164,40 @@ function filterProjects(category) {
             card.classList.remove('hidden-project');
             card.style.opacity = '1';
             card.style.transform = 'translateY(0)';
+            visibleCount++;
         } else {
             card.classList.add('hidden-project');
         }
     });
+
+    // Reset horizontal slider scroll on mobile
+    const container = document.getElementById('projectsContainer');
+    if (container) {
+        container.scrollTo({ left: 0, behavior: 'smooth' });
+    }
+
+    const countEl = document.getElementById('projectTotalCount');
+    const indexEl = document.getElementById('projectActiveIndex');
+    if (countEl) countEl.textContent = visibleCount;
+    if (indexEl) indexEl.textContent = '1';
 }
+
+// Track active slide index on mobile scroll
+document.addEventListener('DOMContentLoaded', () => {
+    const projectsSliderEl = document.getElementById('projectsContainer');
+    if (projectsSliderEl) {
+        projectsSliderEl.addEventListener('scroll', () => {
+            const visibleCards = Array.from(projectsSliderEl.querySelectorAll('.project-card-item:not(.hidden-project)'));
+            if (!visibleCards.length) return;
+            const scrollLeft = projectsSliderEl.scrollLeft;
+            const cardWidth = (visibleCards[0].offsetWidth || 300) + 20;
+            const currentIndex = Math.min(Math.max(1, Math.round(scrollLeft / cardWidth) + 1), visibleCards.length);
+            const indexEl = document.getElementById('projectActiveIndex');
+            if (indexEl) indexEl.textContent = currentIndex;
+        }, { passive: true });
+    }
+});
+
 
 
 // Services Data

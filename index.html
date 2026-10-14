@@ -572,11 +572,12 @@
             </button>
         </div>
 
-        <!-- Projects Grid (3x3) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
+        <!-- Projects Grid on Desktop / Slider on Mobile -->
+        <div id="projectsContainer"
+            class="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 max-w-7xl mx-auto overflow-x-auto sm:overflow-visible snap-x snap-mandatory sm:snap-none pb-6 sm:pb-0 px-4 sm:px-0 -mx-4 sm:mx-0 scroll-smooth projects-mobile-slider">
 
             <!-- Project 1: Avante Website -->
-            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden"
+            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden w-[85vw] max-w-[340px] flex-shrink-0 snap-center sm:w-auto sm:max-w-none sm:flex-shrink"
                 data-category="web">
                 <div>
                     <div
@@ -626,7 +627,7 @@
             </div>
 
             <!-- Project 2: Sidlak Beach Resort -->
-            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden"
+            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden w-[85vw] max-w-[340px] flex-shrink-0 snap-center sm:w-auto sm:max-w-none sm:flex-shrink"
                 data-category="web">
                 <div>
                     <div
@@ -668,7 +669,7 @@
             </div>
 
             <!-- Project 3: LogicGuard PH -->
-            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden"
+            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden w-[85vw] max-w-[340px] flex-shrink-0 snap-center sm:w-auto sm:max-w-none sm:flex-shrink"
                 data-category="mobile">
                 <div>
                     <div
@@ -710,7 +711,7 @@
             </div>
 
             <!-- Project 4: RangeWise EV -->
-            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden"
+            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden w-[85vw] max-w-[340px] flex-shrink-0 snap-center sm:w-auto sm:max-w-none sm:flex-shrink"
                 data-category="mobile">
                 <div>
                     <div
@@ -752,7 +753,7 @@
             </div>
 
             <!-- Project 5: To Do Na To -->
-            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden"
+            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden w-[85vw] max-w-[340px] flex-shrink-0 snap-center sm:w-auto sm:max-w-none sm:flex-shrink"
                 data-category="mobile">
                 <div>
                     <div
@@ -794,7 +795,7 @@
             </div>
 
             <!-- Project 6: KwartaTala -->
-            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden"
+            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden w-[85vw] max-w-[340px] flex-shrink-0 snap-center sm:w-auto sm:max-w-none sm:flex-shrink"
                 data-category="web">
                 <div>
                     <div
@@ -844,7 +845,7 @@
             </div>
 
             <!-- Project 7: Sukati -->
-            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden"
+            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden w-[85vw] max-w-[340px] flex-shrink-0 snap-center sm:w-auto sm:max-w-none sm:flex-shrink"
                 data-category="mobile">
                 <div>
                     <div
@@ -894,7 +895,7 @@
             </div>
 
             <!-- Project 8: BlueBalud -->
-            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden"
+            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden w-[85vw] max-w-[340px] flex-shrink-0 snap-center sm:w-auto sm:max-w-none sm:flex-shrink"
                 data-category="mobile">
                 <div>
                     <div
@@ -936,7 +937,7 @@
             </div>
 
             <!-- Project 9: Ascend -->
-            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden"
+            <div class="glass-card project-card-item flex flex-col justify-between group overflow-hidden w-[85vw] max-w-[340px] flex-shrink-0 snap-center sm:w-auto sm:max-w-none sm:flex-shrink"
                 data-category="web">
                 <div>
                     <div
@@ -977,6 +978,35 @@
                 </div>
             </div>
 
+        </div>
+
+        <!-- Mobile Perspective Navigation Controls & Indicator (Hidden on sm and larger) -->
+        <div class="flex sm:hidden items-center justify-between mt-4 px-2">
+            <div class="flex items-center gap-2">
+                <span class="glass-pill px-3 py-1 text-xs font-mono font-semibold text-slate-700 dark:text-slate-200">
+                    <span id="projectActiveIndex">1</span> / <span id="projectTotalCount">9</span>
+                </span>
+                <span class="text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                    </svg>
+                    Swipe to explore
+                </span>
+            </div>
+            <div class="flex items-center gap-2">
+                <button onclick="slideProjects('prev')" aria-label="Previous Project"
+                    class="w-9 h-9 rounded-full glass-card flex items-center justify-center hover:scale-110 active:scale-95 transition text-slate-700 dark:text-white">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button onclick="slideProjects('next')" aria-label="Next Project"
+                    class="w-9 h-9 rounded-full glass-card flex items-center justify-center hover:scale-110 active:scale-95 transition text-slate-700 dark:text-white">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
         </div>
 
         <!-- View More on GitHub CTA -->

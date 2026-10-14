@@ -434,3 +434,16 @@ header.nav-scrolled {
   display: none !important;
 }
 
+/* Mobile Perspective Horizontal Project Slider */
+@media (max-width: 639px) {
+  .projects-mobile-slider {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+  .projects-mobile-slider::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+}
+
