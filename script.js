@@ -44,6 +44,24 @@ function toggleTheme() {
 
 // Project Details Data
 const projectData = {
+    balanceiq: {
+        title: "BalanceIQ — Intelligent Financial Dashboard",
+        subtitle: "Personal Finance & Cash Flow Intelligence",
+        description: "A comprehensive real-time financial tracking and budgeting dashboard. Features multi-account balance monitoring, interactive monthly cash flow analytics, spending category budget progress, and transaction management in a sleek responsive interface.",
+        stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+        image: "./image/BalanceIQ.jpg",
+        demoUrl: "https://balance-iq-bice.vercel.app/",
+        githubUrl: "https://github.com/MicKilldev/BalanceIQ"
+    },
+    orgconnect: {
+        title: "OrgConnect — Campus Event & Organization Portal",
+        subtitle: "Student Life & Event RSVP Platform",
+        description: "An intuitive university campus ecosystem designed to connect students with organizations and campus activities. Offers categorized event discovery, automated calendar planning, attendee management, and streamlined event workflows.",
+        stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+        image: "./image/OrgConnect.jpg",
+        demoUrl: "https://org-connect-chi.vercel.app/",
+        githubUrl: "https://github.com/MicKilldev/OrgConnect"
+    },
     avante: {
         title: "Avante Agri-Products USA — Global Export Platform",
         subtitle: "AgriTech Corporate Web Platform",
