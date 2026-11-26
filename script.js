@@ -1,5 +1,6 @@
 // Navigation & Mobile Menu
 const sideMenu = document.querySelector('#sideMenu');
+const menuBackdrop = document.querySelector('#menuBackdrop');
 const navBar = document.querySelector('nav');
 const navLinks = document.querySelector('nav ul');
 
@@ -7,12 +8,20 @@ function openMenu() {
     if (sideMenu) {
         sideMenu.style.transform = 'translateX(0)';
     }
+    if (menuBackdrop) {
+        menuBackdrop.classList.add('menu-open');
+    }
+    document.body.style.overflow = 'hidden';
 }
 
 function closeMenu() {
     if (sideMenu) {
         sideMenu.style.transform = 'translateX(100%)';
     }
+    if (menuBackdrop) {
+        menuBackdrop.classList.remove('menu-open');
+    }
+    document.body.style.overflow = '';
 }
 
 // Window scroll navigation glass effect
@@ -24,7 +33,47 @@ window.addEventListener('scroll', () => {
     } else {
         appHeader.classList.remove('nav-scrolled');
     }
-});
+}, { passive: true });
+
+// Active section tracking for navigation capsule (Desktop & Mobile)
+function updateActiveNav() {
+    const sections = document.querySelectorAll('section[id]');
+    const desktopNavLinks = document.querySelectorAll('.nav-link');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const scrollY = window.scrollY;
+    let currentSectionId = '';
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 140;
+        const sectionHeight = section.offsetHeight;
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            currentSectionId = section.getAttribute('id');
+        }
+    });
+
+    if (!currentSectionId && sections.length > 0) {
+        currentSectionId = sections[0].getAttribute('id');
+    }
+
+    desktopNavLinks.forEach(link => {
+        if (link.getAttribute('data-nav') === currentSectionId) {
+            link.classList.add('nav-active');
+        } else {
+            link.classList.remove('nav-active');
+        }
+    });
+
+    mobileNavLinks.forEach(link => {
+        if (link.getAttribute('data-nav') === currentSectionId) {
+            link.classList.add('nav-active');
+        } else {
+            link.classList.remove('nav-active');
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+window.addEventListener('DOMContentLoaded', updateActiveNav);
 
 // Light mode and dark mode
 if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -251,10 +300,10 @@ function openProjectModal(projectId) {
     if (!modal) {
         modal = document.createElement('div');
         modal.id = 'glassModal';
-        modal.className = 'fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/40 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300';
+        modal.className = 'fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-black/50 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300';
         modal.innerHTML = `
-            <div id="glassModalCard" class="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto glass-panel p-6 sm:p-8 transform scale-95 transition-all duration-300 border border-white/80 dark:border-white/20 shadow-2xl">
-                <button onclick="closeModal()" class="absolute top-5 right-5 w-10 h-10 rounded-full flex items-center justify-center glass-btn-white text-gray-700 dark:text-white font-bold text-xl hover:scale-105 transition cursor-pointer z-10" aria-label="Close modal">
+            <div id="glassModalCard" class="relative w-full max-w-2xl max-h-[85vh] sm:max-h-[90vh] overflow-y-auto glass-panel p-5 sm:p-8 transform scale-95 transition-all duration-300 border border-white/80 dark:border-white/20 shadow-2xl">
+                <button onclick="closeModal()" class="absolute top-4 right-4 sm:top-5 sm:right-5 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center glass-btn-white text-gray-700 dark:text-white font-bold text-xl hover:scale-105 transition cursor-pointer z-20 shadow-md" aria-label="Close modal">
                     &times;
                 </button>
                 <div id="modalBody"></div>
@@ -267,38 +316,40 @@ function openProjectModal(projectId) {
         });
     }
 
+    document.body.style.overflow = 'hidden';
+
     const modalBody = document.getElementById('modalBody');
     const stackPills = project.stack.map(tech => 
-        `<span class="glass-badge text-xs px-3 py-1 font-medium">${tech}</span>`
+        `<span class="glass-badge text-xs px-2.5 py-1 font-medium">${tech}</span>`
     ).join('');
 
     modalBody.innerHTML = `
-        <div class="space-y-5">
-            <div class="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden border border-white/80 dark:border-white/10 shadow-inner">
+        <div class="space-y-4 sm:space-y-5">
+            <div class="relative w-full h-44 sm:h-60 rounded-2xl overflow-hidden border border-white/80 dark:border-white/10 shadow-inner">
                 <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <div class="absolute bottom-4 left-4 right-4">
-                    <span class="inline-block px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-white/90 text-slate-900 backdrop-blur-md mb-1">${project.subtitle}</span>
-                    <h3 class="text-2xl font-bold text-white drop-shadow-md">${project.title}</h3>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4">
+                    <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider bg-white/90 text-slate-900 backdrop-blur-md mb-1">${project.subtitle}</span>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white drop-shadow-md">${project.title}</h3>
                 </div>
             </div>
             
-            <p class="text-sm sm:text-base leading-relaxed text-slate-700 dark:text-slate-200">${project.description}</p>
+            <p class="text-xs sm:text-sm md:text-base leading-relaxed text-slate-700 dark:text-slate-200">${project.description}</p>
             
             <div>
                 <h4 class="text-xs uppercase tracking-wider font-semibold text-slate-500 dark:text-slate-400 mb-2">Technologies Used</h4>
-                <div class="flex flex-wrap gap-2">
+                <div class="flex flex-wrap gap-1.5 sm:gap-2">
                     ${stackPills}
                 </div>
             </div>
 
-            <div class="flex items-center gap-4 pt-4 border-t border-slate-200/60 dark:border-white/10">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4 pt-3 sm:pt-4 border-t border-slate-200/60 dark:border-white/10">
                 ${project.demoUrl && project.demoUrl !== '#' ? `
-                <a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 rounded-full font-medium text-sm glass-btn-dark inline-flex items-center gap-2">
+                <a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 rounded-full font-medium text-xs sm:text-sm glass-btn-dark inline-flex items-center justify-center gap-2">
                     Live Demo
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                 </a>` : ''}
-                <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 rounded-full font-medium text-sm glass-btn-white inline-flex items-center gap-2">
+                <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 rounded-full font-medium text-xs sm:text-sm glass-btn-white inline-flex items-center justify-center gap-2">
                     Source Code
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                 </a>
@@ -327,17 +378,19 @@ function openServiceModal(serviceKey) {
         modal = document.getElementById('glassModal');
     }
 
+    document.body.style.overflow = 'hidden';
+
     const modalBody = document.getElementById('modalBody');
     modalBody.innerHTML = `
         <div class="space-y-4">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
                 Service Offering
             </div>
-            <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">${service.title}</h3>
-            <p class="text-sm font-medium text-purple-600 dark:text-purple-400">${service.tagline}</p>
-            <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">${service.description}</p>
+            <h3 class="text-xl sm:text-3xl font-bold text-slate-900 dark:text-white">${service.title}</h3>
+            <p class="text-xs sm:text-sm font-medium text-purple-600 dark:text-purple-400">${service.tagline}</p>
+            <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-base leading-relaxed">${service.description}</p>
             <div class="pt-4 flex items-center gap-3">
-                <a href="#contact" onclick="closeModal()" class="px-6 py-2.5 rounded-full text-sm font-medium glass-btn-dark inline-flex items-center gap-2">
+                <a href="#contact" onclick="closeModal()" class="w-full sm:w-auto text-center px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium glass-btn-dark inline-flex items-center justify-center gap-2">
                     Inquire About This Service
                 </a>
             </div>
@@ -363,6 +416,7 @@ function closeModal() {
         card.classList.add('scale-95');
     }
     modal.classList.add('opacity-0', 'pointer-events-none');
+    document.body.style.overflow = '';
 }
 
 // Close modal on Escape key

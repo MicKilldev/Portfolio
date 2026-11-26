@@ -79,13 +79,13 @@
 
             <!-- Floating Glass Navigation Capsule (Desktop) -->
             <ul
-                class="hidden md:flex items-center gap-7 lg:gap-9 glass-pill px-8 py-3 text-sm font-medium text-slate-700 dark:text-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.03)] border border-white/80 dark:border-white/10">
-                <li><a href="#top" class="hover:text-blue-600 dark:hover:text-white transition">Home</a></li>
-                <li><a href="#about" class="hover:text-blue-600 dark:hover:text-white transition">About</a></li>
-                <li><a href="#skills" class="hover:text-blue-600 dark:hover:text-white transition">Skills</a></li>
-                <li><a href="#services" class="hover:text-blue-600 dark:hover:text-white transition">Services</a></li>
-                <li><a href="#work" class="hover:text-blue-600 dark:hover:text-white transition">Projects</a></li>
-                <li><a href="#contact" class="hover:text-blue-600 dark:hover:text-white transition">Contact</a></li>
+                class="hidden md:flex items-center gap-6 lg:gap-8 glass-pill px-7 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.03)] border border-white/80 dark:border-white/10">
+                <li><a href="#top" data-nav="top" class="nav-link py-1 hover:text-blue-600 dark:hover:text-white transition">Home</a></li>
+                <li><a href="#about" data-nav="about" class="nav-link py-1 hover:text-blue-600 dark:hover:text-white transition">About</a></li>
+                <li><a href="#skills" data-nav="skills" class="nav-link py-1 hover:text-blue-600 dark:hover:text-white transition">Skills</a></li>
+                <li><a href="#services" data-nav="services" class="nav-link py-1 hover:text-blue-600 dark:hover:text-white transition">Services</a></li>
+                <li><a href="#work" data-nav="work" class="nav-link py-1 hover:text-blue-600 dark:hover:text-white transition">Projects</a></li>
+                <li><a href="#contact" data-nav="contact" class="nav-link py-1 hover:text-blue-600 dark:hover:text-white transition">Contact</a></li>
             </ul>
 
             <!-- Controls (Theme Toggle & CTA) -->
@@ -119,32 +119,37 @@
             </div>
         </nav>
 
+        <!-- Mobile Menu Backdrop -->
+        <div id="menuBackdrop" onclick="closeMenu()"
+            class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+            aria-hidden="true"></div>
+
         <!-- Mobile Drawer Menu -->
         <div id="sideMenu"
-            class="fixed inset-y-0 right-0 w-72 glass-panel z-50 p-8 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden flex flex-col justify-between border-l border-white/80 dark:border-white/10 shadow-2xl">
+            class="fixed inset-y-0 right-0 w-72 max-w-[85vw] glass-panel z-50 p-6 sm:p-8 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-between border-l border-white/80 dark:border-white/10 shadow-2xl overflow-y-auto">
             <div>
-                <div class="flex items-center justify-between pb-6 border-b border-slate-200/60 dark:border-white/10">
+                <div class="flex items-center justify-between pb-5 border-b border-slate-200/60 dark:border-white/10">
                     <span class="font-bold text-lg text-slate-800 dark:text-white">Navigation</span>
                     <button onclick="closeMenu()"
-                        class="w-9 h-9 rounded-full glass-pill flex items-center justify-center"
+                        class="w-9 h-9 rounded-full glass-pill flex items-center justify-center hover:scale-105 transition"
                         aria-label="Close menu">
                         <img src="./image/close-black.png" alt="Close" class="w-4 dark:hidden">
                         <img src="./image/close-white.png" alt="Close" class="w-4 hidden dark:block">
                     </button>
                 </div>
-                <ul class="flex flex-col gap-5 mt-8 text-base font-medium text-slate-700 dark:text-slate-200">
-                    <li><a href="#top" onclick="closeMenu()"
-                            class="block py-1 hover:text-blue-600 dark:hover:text-white transition">Home</a></li>
-                    <li><a href="#about" onclick="closeMenu()"
-                            class="block py-1 hover:text-blue-600 dark:hover:text-white transition">About</a></li>
-                    <li><a href="#skills" onclick="closeMenu()"
-                            class="block py-1 hover:text-blue-600 dark:hover:text-white transition">Skills</a></li>
-                    <li><a href="#services" onclick="closeMenu()"
-                            class="block py-1 hover:text-blue-600 dark:hover:text-white transition">Services</a></li>
-                    <li><a href="#work" onclick="closeMenu()"
-                            class="block py-1 hover:text-blue-600 dark:hover:text-white transition">Projects</a></li>
-                    <li><a href="#contact" onclick="closeMenu()"
-                            class="block py-1 hover:text-blue-600 dark:hover:text-white transition">Contact</a></li>
+                <ul class="flex flex-col gap-4 mt-6 text-base font-medium text-slate-700 dark:text-slate-200">
+                    <li><a href="#top" data-nav="top" onclick="closeMenu()"
+                            class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">Home</a></li>
+                    <li><a href="#about" data-nav="about" onclick="closeMenu()"
+                            class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">About</a></li>
+                    <li><a href="#skills" data-nav="skills" onclick="closeMenu()"
+                            class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">Skills</a></li>
+                    <li><a href="#services" data-nav="services" onclick="closeMenu()"
+                            class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">Services</a></li>
+                    <li><a href="#work" data-nav="work" onclick="closeMenu()"
+                            class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">Projects</a></li>
+                    <li><a href="#contact" data-nav="contact" onclick="closeMenu()"
+                            class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">Contact</a></li>
                 </ul>
             </div>
             <div class="pt-6 border-t border-slate-200/60 dark:border-white/10">
@@ -158,11 +163,11 @@
 
     <!-- Hero Section -->
     <section id="top"
-        class="relative min-h-screen pt-28 pb-16 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
+        class="relative min-h-[calc(100vh-2rem)] pt-24 sm:pt-28 pb-10 sm:pb-16 flex flex-col items-center justify-center px-4 sm:px-6 text-center scroll-mt-20">
         <div class="max-w-3xl mx-auto flex flex-col items-center" data-aos="fade-up">
 
             <!-- Availability Glass Badge -->
-            <div class="glass-badge mb-6 py-1.5 px-4">
+            <div class="glass-badge mb-4 sm:mb-5 py-1.5 px-4">
                 <span class="relative flex h-2.5 w-2.5">
                     <span
                         class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -173,10 +178,10 @@
             </div>
 
             <!-- Profile Avatar in Glass Halo -->
-            <div class="relative mb-6">
+            <div class="relative mb-4 sm:mb-5">
                 <div class="p-2 rounded-full glass-card inline-block shadow-xl">
                     <img src="./image/Noli _Rounded(1).png" alt="Noli Jhon Mickael Garde"
-                        class="rounded-full w-28 h-28 sm:w-32 sm:h-32 object-cover border-2 border-white/90 dark:border-white/20 shadow-inner">
+                        class="rounded-full w-24 h-24 sm:w-28 sm:h-28 object-cover border-2 border-white/90 dark:border-white/20 shadow-inner">
                 </div>
                 <div class="absolute -bottom-2 -right-2 glass-badge py-1 px-3 text-xs shadow-md">
                     👋 <span>Mickael</span>
@@ -184,28 +189,28 @@
             </div>
 
             <!-- Intro Tagline -->
-            <h2 class="text-lg sm:text-xl font-medium text-slate-600 dark:text-slate-300 mb-3 font-Outfit">
+            <h2 class="text-base sm:text-lg lg:text-xl font-medium text-slate-600 dark:text-slate-300 mb-2 sm:mb-3 font-Outfit">
                 Hello, I am Mickael Garde
             </h2>
 
             <!-- Main Heading with Typed.js -->
             <h1
-                class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15] mb-6">
+                class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.18] mb-4 sm:mb-5">
                 I build modern <br class="hidden sm:inline">
                 <span id="typed"
                     class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent"></span>
             </h1>
 
             <!-- Description -->
-            <p class="max-w-xl mx-auto text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
+            <p class="max-w-xl mx-auto text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6 sm:mb-8">
                 Frontend & Full-Stack developer based in Davao City, Philippines. Crafting responsive web architectures
                 and sleek mobile experiences with glassmorphic aesthetics.
             </p>
 
             <!-- Hero Action Buttons -->
-            <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
                 <a href="#contact"
-                    class="w-full sm:w-auto px-8 py-3.5 rounded-full font-semibold text-sm glass-btn-dark flex items-center justify-center gap-2 group">
+                    class="w-full sm:w-auto px-7 sm:px-8 py-3 sm:py-3.5 rounded-full font-semibold text-sm glass-btn-dark flex items-center justify-center gap-2 group">
                     <span>Contact Me</span>
                     <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
@@ -215,25 +220,25 @@
                 </a>
 
                 <a href="./image/Garde,N_CV .pdf" download
-                    class="w-full sm:w-auto px-8 py-3.5 rounded-full font-semibold text-sm glass-btn-white flex items-center justify-center gap-2">
+                    class="w-full sm:w-auto px-7 sm:px-8 py-3 sm:py-3.5 rounded-full font-semibold text-sm glass-btn-white flex items-center justify-center gap-2">
                     <span>Download CV</span>
                     <img src="./image/download-icon.png" alt="Download" class="w-4 h-4 opacity-80 dark:invert">
                 </a>
             </div>
 
             <!-- Quick Glass Highlight Metrics -->
-            <div class="grid grid-cols-3 gap-3 sm:gap-6 mt-12 w-full max-w-lg">
-                <div class="glass-card p-4 text-center">
-                    <p class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">2+</p>
-                    <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">Years Experience</p>
+            <div class="grid grid-cols-3 gap-2.5 sm:gap-6 mt-8 sm:mt-10 w-full max-w-lg">
+                <div class="glass-card p-3 sm:p-4 text-center">
+                    <p class="text-xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">2+</p>
+                    <p class="text-[11px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">Years Experience</p>
                 </div>
-                <div class="glass-card p-4 text-center">
-                    <p class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">9+</p>
-                    <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">Built Projects</p>
+                <div class="glass-card p-3 sm:p-4 text-center">
+                    <p class="text-xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">11+</p>
+                    <p class="text-[11px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">Built Projects</p>
                 </div>
-                <div class="glass-card p-4 text-center">
-                    <p class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">100%</p>
-                    <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">Commitment</p>
+                <div class="glass-card p-3 sm:p-4 text-center">
+                    <p class="text-xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">100%</p>
+                    <p class="text-[11px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">Commitment</p>
                 </div>
             </div>
 
@@ -241,37 +246,37 @@
     </section>
 
     <!-- About Me Section -->
-    <section id="about" class="w-full px-4 sm:px-8 lg:px-[10%] py-24 scroll-mt-16" data-aos="fade-up">
-        <div class="text-center mb-16">
+    <section id="about" class="w-full px-4 sm:px-8 lg:px-[10%] py-12 sm:py-16 lg:py-20 scroll-mt-20 lg:scroll-mt-24" data-aos="fade-up">
+        <div class="text-center mb-8 sm:mb-10 lg:mb-12">
             <span class="glass-badge mb-3">Introduction</span>
             <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">About Me</h2>
-            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-4"></div>
+            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-3"></div>
         </div>
 
-        <div class="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16 max-w-6xl mx-auto">
+        <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12 max-w-6xl mx-auto">
             <!-- Left: Profile Photo Card with Glass Frame & Circular Badge -->
-            <div class="w-full max-w-sm sm:max-w-md mx-auto relative flex-shrink-0">
+            <div class="w-full max-w-xs sm:max-w-sm lg:max-w-[320px] mx-auto relative flex-shrink-0">
                 <div class="glass-card p-3 sm:p-4 shadow-2xl rounded-3xl">
                     <img src="./image/Noli_photo  (2).png" alt="Noli Jhon Mickael Garde"
-                        class="w-full rounded-2xl object-cover aspect-[4/5] border border-white/60 dark:border-white/10">
+                        class="w-full rounded-2xl object-cover aspect-[4/5] max-h-[360px] border border-white/60 dark:border-white/10">
                 </div>
 
                 <!-- Floating Rotating Glass Badge -->
                 <div
-                    class="glass-panel w-32 h-32 sm:w-36 sm:h-36 absolute -right-4 -bottom-6 rounded-full flex items-center justify-center p-2 shadow-2xl border-2 border-white/90 dark:border-white/20">
+                    class="glass-panel w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 absolute -right-3 -bottom-4 rounded-full flex items-center justify-center p-2 shadow-2xl border-2 border-white/90 dark:border-white/20">
                     <img src="./image/circular-text.png" alt="Developer text"
                         class="w-full h-full animate-spin_slow select-none pointer-events-none dark:invert">
                     <div
-                        class="w-10 h-10 rounded-full glass-card absolute flex items-center justify-center overflow-hidden border border-white/80">
+                        class="w-9 h-9 sm:w-10 sm:h-10 rounded-full glass-card absolute flex items-center justify-center overflow-hidden border border-white/80">
                         <img src="./image/dev-icon.jpeg" alt="Icon" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
 
             <!-- Right: Bio and Glass Feature Cards -->
-            <div class="flex-1 space-y-8">
-                <div class="glass-card p-6 sm:p-8">
-                    <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-3">
+            <div class="flex-1 space-y-4 sm:space-y-6">
+                <div class="glass-card p-5 sm:p-6 lg:p-7">
+                    <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2 sm:mb-3">
                         Passionate Full-Stack Developer & UI Enthusiast
                     </h3>
                     <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
@@ -283,69 +288,69 @@
                 </div>
 
                 <!-- 3 Highlights Glass Cards -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-                    <div class="glass-card p-6 group cursor-pointer">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                    <div class="glass-card p-4 sm:p-5 group cursor-pointer">
                         <div
-                            class="w-12 h-12 rounded-xl glass-pill flex items-center justify-center mb-4 group-hover:scale-110 transition">
-                            <img src="./image/code-icon.png" alt="Languages" class="w-6 dark:hidden">
-                            <img src="./image/code-icon-dark.png" alt="Languages" class="w-6 hidden dark:block">
+                            class="w-11 h-11 rounded-xl glass-pill flex items-center justify-center mb-3 group-hover:scale-110 transition">
+                            <img src="./image/code-icon.png" alt="Languages" class="w-5 dark:hidden">
+                            <img src="./image/code-icon-dark.png" alt="Languages" class="w-5 hidden dark:block">
                         </div>
-                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-1">Languages</h4>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">Languages</h4>
                         <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">HTML, CSS, JavaScript,
                             React, Next.js, Laravel</p>
                     </div>
 
-                    <div class="glass-card p-6 group cursor-pointer">
+                    <div class="glass-card p-4 sm:p-5 group cursor-pointer">
                         <div
-                            class="w-12 h-12 rounded-xl glass-pill flex items-center justify-center mb-4 group-hover:scale-110 transition">
-                            <img src="./image/edu-icon.png" alt="Education" class="w-6 dark:hidden">
-                            <img src="./image/edu-icon-dark.png" alt="Education" class="w-6 hidden dark:block">
+                            class="w-11 h-11 rounded-xl glass-pill flex items-center justify-center mb-3 group-hover:scale-110 transition">
+                            <img src="./image/edu-icon.png" alt="Education" class="w-5 dark:hidden">
+                            <img src="./image/edu-icon-dark.png" alt="Education" class="w-5 hidden dark:block">
                         </div>
-                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-1">Education</h4>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">Education</h4>
                         <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">BS in Information
                             Technology (Graduate)</p>
                     </div>
 
-                    <div class="glass-card p-6 group cursor-pointer">
+                    <div class="glass-card p-4 sm:p-5 group cursor-pointer">
                         <div
-                            class="w-12 h-12 rounded-xl glass-pill flex items-center justify-center mb-4 group-hover:scale-110 transition">
-                            <img src="./image/project-icon.png" alt="Projects" class="w-6 dark:hidden">
-                            <img src="./image/project-icon-dark.png" alt="Projects" class="w-6 hidden dark:block">
+                            class="w-11 h-11 rounded-xl glass-pill flex items-center justify-center mb-3 group-hover:scale-110 transition">
+                            <img src="./image/project-icon.png" alt="Projects" class="w-5 dark:hidden">
+                            <img src="./image/project-icon-dark.png" alt="Projects" class="w-5 hidden dark:block">
                         </div>
-                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-1">Projects</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Built 9+ production-grade
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">Projects</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Built 11+ production-grade
                             web & mobile apps</p>
                     </div>
                 </div>
 
                 <!-- Tools & Technologies Glass Strip -->
-                <div class="glass-card p-6">
-                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">Core
+                <div class="glass-card p-4 sm:p-5">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">Core
                         Tools & Tech Stack</h4>
-                    <div class="flex flex-wrap items-center gap-3 sm:gap-4">
-                        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl glass-pill hover:scale-105 transition"
+                    <div class="flex flex-wrap items-center gap-2.5 sm:gap-3">
+                        <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl glass-pill hover:scale-105 transition"
                             title="VS Code">
-                            <img src="./image/vscode.png" alt="VS Code" class="w-5 h-5">
+                            <img src="./image/vscode.png" alt="VS Code" class="w-4 h-4 sm:w-5 sm:h-5">
                             <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">VS Code</span>
                         </div>
-                        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl glass-pill hover:scale-105 transition"
+                        <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl glass-pill hover:scale-105 transition"
                             title="Firebase">
-                            <img src="./image/firebase.png" alt="Firebase" class="w-5 h-5">
+                            <img src="./image/firebase.png" alt="Firebase" class="w-4 h-4 sm:w-5 sm:h-5">
                             <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Firebase</span>
                         </div>
-                        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl glass-pill hover:scale-105 transition"
+                        <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl glass-pill hover:scale-105 transition"
                             title="MongoDB">
-                            <img src="./image/mongodb.png" alt="MongoDB" class="w-5 h-5">
+                            <img src="./image/mongodb.png" alt="MongoDB" class="w-4 h-4 sm:w-5 sm:h-5">
                             <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">MongoDB</span>
                         </div>
-                        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl glass-pill hover:scale-105 transition"
+                        <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl glass-pill hover:scale-105 transition"
                             title="Figma">
-                            <img src="./image/figma.png" alt="Figma" class="w-5 h-5">
+                            <img src="./image/figma.png" alt="Figma" class="w-4 h-4 sm:w-5 sm:h-5">
                             <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Figma</span>
                         </div>
-                        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl glass-pill hover:scale-105 transition"
+                        <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl glass-pill hover:scale-105 transition"
                             title="Git">
-                            <img src="./image/git.png" alt="Git" class="w-5 h-5">
+                            <img src="./image/git.png" alt="Git" class="w-4 h-4 sm:w-5 sm:h-5">
                             <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Git & GitHub</span>
                         </div>
                     </div>
@@ -355,112 +360,112 @@
     </section>
 
     <!-- My Skills Section -->
-    <section id="skills" class="w-full px-4 sm:px-8 lg:px-[12%] py-24 scroll-mt-16" data-aos="fade-up">
-        <div class="text-center mb-16">
+    <section id="skills" class="w-full px-4 sm:px-8 lg:px-[12%] py-12 sm:py-16 lg:py-20 scroll-mt-20 lg:scroll-mt-24" data-aos="fade-up">
+        <div class="text-center mb-8 sm:mb-10">
             <span class="glass-badge mb-3">Expertise</span>
             <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Technical
                 Skills</h2>
-            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-4"></div>
+            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-3"></div>
         </div>
 
-        <div class="max-w-4xl mx-auto glass-card p-6 sm:p-10 space-y-6">
+        <div class="max-w-4xl mx-auto glass-card p-5 sm:p-8 space-y-4 sm:space-y-5">
             <!-- Skill Item -->
             <div>
-                <div class="flex justify-between items-center mb-2">
-                    <span class="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                <div class="flex justify-between items-center mb-1.5">
+                    <span class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-blue-500"></span> HTML5 & Semantic Web
                     </span>
                     <span class="text-xs font-semibold glass-badge px-2.5 py-0.5">95%</span>
                 </div>
-                <div class="w-full glass-progress-track h-3">
-                    <div class="glass-progress-fill h-3 w-[95%]"></div>
+                <div class="w-full glass-progress-track h-2.5 sm:h-3">
+                    <div class="glass-progress-fill h-2.5 sm:h-3 w-[95%]"></div>
                 </div>
             </div>
 
             <!-- Skill Item -->
             <div>
-                <div class="flex justify-between items-center mb-2">
-                    <span class="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                <div class="flex justify-between items-center mb-1.5">
+                    <span class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-indigo-500"></span> CSS3 / Tailwind CSS / Glassmorphism
                     </span>
                     <span class="text-xs font-semibold glass-badge px-2.5 py-0.5">92%</span>
                 </div>
-                <div class="w-full glass-progress-track h-3">
-                    <div class="glass-progress-fill h-3 w-[92%]"></div>
+                <div class="w-full glass-progress-track h-2.5 sm:h-3">
+                    <div class="glass-progress-fill h-2.5 sm:h-3 w-[92%]"></div>
                 </div>
             </div>
 
             <!-- Skill Item -->
             <div>
-                <div class="flex justify-between items-center mb-2">
-                    <span class="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                <div class="flex justify-between items-center mb-1.5">
+                    <span class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-yellow-500"></span> JavaScript (ES6+) & React.js
                     </span>
                     <span class="text-xs font-semibold glass-badge px-2.5 py-0.5">85%</span>
                 </div>
-                <div class="w-full glass-progress-track h-3">
-                    <div class="glass-progress-fill h-3 w-[85%]"></div>
+                <div class="w-full glass-progress-track h-2.5 sm:h-3">
+                    <div class="glass-progress-fill h-2.5 sm:h-3 w-[85%]"></div>
                 </div>
             </div>
 
             <!-- Skill Item -->
             <div>
-                <div class="flex justify-between items-center mb-2">
-                    <span class="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                <div class="flex justify-between items-center mb-1.5">
+                    <span class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-red-500"></span> Laravel & PHP Backend Architecture
                     </span>
                     <span class="text-xs font-semibold glass-badge px-2.5 py-0.5">75%</span>
                 </div>
-                <div class="w-full glass-progress-track h-3">
-                    <div class="glass-progress-fill h-3 w-[75%]"></div>
+                <div class="w-full glass-progress-track h-2.5 sm:h-3">
+                    <div class="glass-progress-fill h-2.5 sm:h-3 w-[75%]"></div>
                 </div>
             </div>
 
             <!-- Skill Item -->
             <div>
-                <div class="flex justify-between items-center mb-2">
-                    <span class="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                <div class="flex justify-between items-center mb-1.5">
+                    <span class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-cyan-500"></span> Flutter & Dart Mobile App Development
                     </span>
                     <span class="text-xs font-semibold glass-badge px-2.5 py-0.5">80%</span>
                 </div>
-                <div class="w-full glass-progress-track h-3">
-                    <div class="glass-progress-fill h-3 w-[80%]"></div>
+                <div class="w-full glass-progress-track h-2.5 sm:h-3">
+                    <div class="glass-progress-fill h-2.5 sm:h-3 w-[80%]"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="w-full px-4 sm:px-8 lg:px-[10%] py-24 scroll-mt-16" data-aos="fade-up">
-        <div class="text-center mb-16">
+    <section id="services" class="w-full px-4 sm:px-8 lg:px-[10%] py-12 sm:py-16 lg:py-20 scroll-mt-20 lg:scroll-mt-24" data-aos="fade-up">
+        <div class="text-center mb-8 sm:mb-10">
             <span class="glass-badge mb-3">Offerings</span>
             <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Services I
                 Provide</h2>
-            <p class="text-slate-600 dark:text-slate-300 max-w-xl mx-auto mt-4 text-sm sm:text-base leading-relaxed">
+            <p class="text-slate-600 dark:text-slate-300 max-w-xl mx-auto mt-3 text-sm sm:text-base leading-relaxed">
                 Specialized in delivering performant, user-centric web and mobile applications with bespoke modern
                 designs.
             </p>
-            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-4"></div>
+            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-3"></div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
             <!-- Service 1 -->
-            <div class="glass-card p-8 flex flex-col justify-between group cursor-pointer"
+            <div class="glass-card p-5 sm:p-6 lg:p-6 flex flex-col justify-between group cursor-pointer"
                 onclick="openServiceModal('web')">
                 <div>
                     <div
-                        class="w-14 h-14 rounded-2xl glass-pill flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
-                        <img src="./image/web-icon.png" alt="Web Development" class="w-7 h-7">
+                        class="w-12 h-12 rounded-2xl glass-pill flex items-center justify-center mb-4 group-hover:scale-110 transition duration-300">
+                        <img src="./image/web-icon.png" alt="Web Development" class="w-6 h-6">
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Web Design & Dev</h3>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">Web Design & Dev</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
                         Building responsive, accessible, and fast web experiences using modern technologies and
                         glassmorphic UI.
                     </p>
                 </div>
                 <button type="button"
-                    class="inline-flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400 group-hover:gap-3 transition-all">
+                    class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-blue-600 dark:text-blue-400 group-hover:gap-3 transition-all pt-2 border-t border-slate-200/40 dark:border-white/5">
                     Learn more
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -470,21 +475,21 @@
             </div>
 
             <!-- Service 2 -->
-            <div class="glass-card p-8 flex flex-col justify-between group cursor-pointer"
+            <div class="glass-card p-5 sm:p-6 lg:p-6 flex flex-col justify-between group cursor-pointer"
                 onclick="openServiceModal('mobile')">
                 <div>
                     <div
-                        class="w-14 h-14 rounded-2xl glass-pill flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
-                        <img src="./image/mobile-icon.png" alt="Mobile Apps" class="w-7 h-7">
+                        class="w-12 h-12 rounded-2xl glass-pill flex items-center justify-center mb-4 group-hover:scale-110 transition duration-300">
+                        <img src="./image/mobile-icon.png" alt="Mobile Apps" class="w-6 h-6">
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Mobile Apps</h3>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">Mobile Apps</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
                         Cross-platform mobile apps built with Flutter & Firebase offering fluid animations and offline
                         sync.
                     </p>
                 </div>
                 <button type="button"
-                    class="inline-flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400 group-hover:gap-3 transition-all">
+                    class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-blue-600 dark:text-blue-400 group-hover:gap-3 transition-all pt-2 border-t border-slate-200/40 dark:border-white/5">
                     Learn more
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -494,21 +499,21 @@
             </div>
 
             <!-- Service 3 -->
-            <div class="glass-card p-8 flex flex-col justify-between group cursor-pointer"
+            <div class="glass-card p-5 sm:p-6 lg:p-6 flex flex-col justify-between group cursor-pointer"
                 onclick="openServiceModal('ui')">
                 <div>
                     <div
-                        class="w-14 h-14 rounded-2xl glass-pill flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
-                        <img src="./image/ui-icon.png" alt="UI/UX Design" class="w-7 h-7">
+                        class="w-12 h-12 rounded-2xl glass-pill flex items-center justify-center mb-4 group-hover:scale-110 transition duration-300">
+                        <img src="./image/ui-icon.png" alt="UI/UX Design" class="w-6 h-6">
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">UI/UX Design</h3>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">UI/UX Design</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
                         Creating modern frosted glass interfaces, wireframes, and prototypes with high-converting user
                         journeys.
                     </p>
                 </div>
                 <button type="button"
-                    class="inline-flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400 group-hover:gap-3 transition-all">
+                    class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-blue-600 dark:text-blue-400 group-hover:gap-3 transition-all pt-2 border-t border-slate-200/40 dark:border-white/5">
                     Learn more
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -518,21 +523,21 @@
             </div>
 
             <!-- Service 4 -->
-            <div class="glass-card p-8 flex flex-col justify-between group cursor-pointer"
+            <div class="glass-card p-5 sm:p-6 lg:p-6 flex flex-col justify-between group cursor-pointer"
                 onclick="openServiceModal('graphics')">
                 <div>
                     <div
-                        class="w-14 h-14 rounded-2xl glass-pill flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
-                        <img src="./image/graphics-icon.png" alt="Graphics Design" class="w-7 h-7">
+                        class="w-12 h-12 rounded-2xl glass-pill flex items-center justify-center mb-4 group-hover:scale-110 transition duration-300">
+                        <img src="./image/graphics-icon.png" alt="Graphics Design" class="w-6 h-6">
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Graphic & Brand</h3>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">Graphic & Brand</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
                         Designing standout digital identities, logos, and custom marketing graphics that strengthen
                         digital presence.
                     </p>
                 </div>
                 <button type="button"
-                    class="inline-flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400 group-hover:gap-3 transition-all">
+                    class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-blue-600 dark:text-blue-400 group-hover:gap-3 transition-all pt-2 border-t border-slate-200/40 dark:border-white/5">
                     Learn more
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -544,20 +549,20 @@
     </section>
 
     <!-- My Work / Portfolio Section -->
-    <section id="work" class="w-full px-4 sm:px-8 lg:px-[8%] py-24 scroll-mt-16" data-aos="fade-up">
-        <div class="text-center mb-12">
+    <section id="work" class="w-full px-4 sm:px-8 lg:px-[8%] py-12 sm:py-16 lg:py-20 scroll-mt-20 lg:scroll-mt-24" data-aos="fade-up">
+        <div class="text-center mb-6 sm:mb-8">
             <span class="glass-badge mb-3">Portfolio</span>
             <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Featured
                 Projects</h2>
-            <p class="text-slate-600 dark:text-slate-300 max-w-xl mx-auto mt-4 text-sm sm:text-base leading-relaxed">
+            <p class="text-slate-600 dark:text-slate-300 max-w-xl mx-auto mt-3 text-sm sm:text-base leading-relaxed">
                 A selection of web systems and mobile applications I've engineered with modern web technologies and
                 clean architecture.
             </p>
-            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-4"></div>
+            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-3"></div>
         </div>
 
         <!-- Project Category Filters -->
-        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12" data-aos="fade-up">
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-10" data-aos="fade-up">
             <button onclick="filterProjects('all')" data-filter="all"
                 class="project-filter-btn active px-5 py-2 rounded-full text-xs sm:text-sm font-semibold">
                 All Projects (11)
@@ -581,7 +586,7 @@
                 data-category="web">
                 <div>
                     <div
-                        class="relative h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
+                        class="relative h-44 sm:h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
                         <img src="./image/BalanceIQ.jpg" alt="BalanceIQ Dashboard"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
@@ -589,7 +594,7 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">BalanceIQ</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 line-clamp-3 sm:line-clamp-none">
                             Intelligent personal finance and cash flow dashboard featuring multi-account balance tracking,
                             budget progress analytics, and transaction monitoring.
                         </p>
@@ -632,7 +637,7 @@
                 data-category="web">
                 <div>
                     <div
-                        class="relative h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
+                        class="relative h-44 sm:h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
                         <img src="./image/OrgConnect.jpg" alt="OrgConnect Campus Portal"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
@@ -640,7 +645,7 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">OrgConnect</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 line-clamp-3 sm:line-clamp-none">
                             Unified student organization and campus event portal for discovering activities, managing RSVPs,
                             and coordinating student leadership initiatives.
                         </p>
@@ -683,7 +688,7 @@
                 data-category="web">
                 <div>
                     <div
-                        class="relative h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
+                        class="relative h-44 sm:h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
                         <img src="./image/avante-agriusa.png" alt="Avante Agri-Products USA"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
@@ -691,7 +696,7 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Avante Agri-Products</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 line-clamp-3 sm:line-clamp-none">
                             Commercial agricultural produce export platform connecting farmers with international
                             markets, product catalogs, and inquiry pipelines.
                         </p>
@@ -733,7 +738,7 @@
                 data-category="web">
                 <div>
                     <div
-                        class="relative h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
+                        class="relative h-44 sm:h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
                         <img src="./image/SidlakResort.jpg" alt="Sidlak Beach Resort"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
@@ -741,7 +746,7 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Sidlak Beach Resort</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 line-clamp-3 sm:line-clamp-none">
                             Online reservation and resort management system with real-time room availability calendar,
                             billing workflows, and guest check-in tracking.
                         </p>
@@ -775,7 +780,7 @@
                 data-category="mobile">
                 <div>
                     <div
-                        class="relative h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
+                        class="relative h-44 sm:h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
                         <img src="./image/LogicGuard.jpg" alt="LogicGuard PH"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
@@ -783,7 +788,7 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">LogicGuard PH</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 line-clamp-3 sm:line-clamp-none">
                             Smartphone 'Logic Microscope' mobile application mathematically auditing news claims, public
                             statements, and fallacies using Gemini AI and truth tables.
                         </p>
@@ -817,7 +822,7 @@
                 data-category="mobile">
                 <div>
                     <div
-                        class="relative h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
+                        class="relative h-44 sm:h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
                         <img src="./image/RangeWise.jpg" alt="RangeWise EV"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
@@ -825,7 +830,7 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">RangeWise EV</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 line-clamp-3 sm:line-clamp-none">
                             Intelligent EV range estimator and battery health analytics app with regenerative braking
                             metrics and trip charging stop planner.
                         </p>
@@ -859,7 +864,7 @@
                 data-category="mobile">
                 <div>
                     <div
-                        class="relative h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
+                        class="relative h-44 sm:h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
                         <img src="./image/to_do_na_to.png" alt="To Do Na To"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
@@ -867,7 +872,7 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">To Do Na To</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 line-clamp-3 sm:line-clamp-none">
                             Streamlined task management and productivity suite with scheduled push notifications,
                             recurring routines, priority buckets, and cloud sync.
                         </p>
@@ -901,7 +906,7 @@
                 data-category="web">
                 <div>
                     <div
-                        class="relative h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
+                        class="relative h-44 sm:h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
                         <img src="./image/KwartaTala.png" alt="KwartaTala"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
@@ -909,7 +914,7 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">KwartaTala</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 line-clamp-3 sm:line-clamp-none">
                             Personal finance & expense manager with budgeting intelligence and visual spending
                             breakdowns.
                         </p>
@@ -951,7 +956,7 @@
                 data-category="mobile">
                 <div>
                     <div
-                        class="relative h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
+                        class="relative h-44 sm:h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
                         <img src="./image/Sukati1.png" alt="Sukati"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
@@ -959,7 +964,7 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Sukati</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 line-clamp-3 sm:line-clamp-none">
                             Tailor suite app managing client measurements, bespoke cutting orders, and fitting
                             schedules.
                         </p>
@@ -1001,7 +1006,7 @@
                 data-category="mobile">
                 <div>
                     <div
-                        class="relative h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
+                        class="relative h-44 sm:h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
                         <img src="./image/BlueBalud1.png" alt="BlueBalud"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
@@ -1009,7 +1014,7 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">BlueBalud</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 line-clamp-3 sm:line-clamp-none">
                             Interactive learning app for students to master physics, engineering formulas, and science
                             problems.
                         </p>
@@ -1043,7 +1048,7 @@
                 data-category="web">
                 <div>
                     <div
-                        class="relative h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
+                        class="relative h-44 sm:h-52 overflow-hidden rounded-t-2xl border-b border-white/60 dark:border-white/10">
                         <img src="./image/Ascend.jpg" alt="Ascend"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
@@ -1051,7 +1056,7 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Ascend</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 line-clamp-3 sm:line-clamp-none">
                             School management platform enabling administrative broadcasts, student records, and
                             gradebook tracking.
                         </p>
@@ -1125,34 +1130,34 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="w-full px-4 sm:px-8 lg:px-[12%] py-24 scroll-mt-16" data-aos="fade-up">
-        <div class="text-center mb-16">
+    <section id="contact" class="w-full px-4 sm:px-8 lg:px-[12%] py-12 sm:py-16 lg:py-20 scroll-mt-20 lg:scroll-mt-24" data-aos="fade-up">
+        <div class="text-center mb-6 sm:mb-8">
             <span class="glass-badge mb-3">Connect</span>
             <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Get In Touch
             </h2>
-            <p class="text-slate-600 dark:text-slate-300 max-w-xl mx-auto mt-4 text-sm sm:text-base leading-relaxed">
+            <p class="text-slate-600 dark:text-slate-300 max-w-xl mx-auto mt-3 text-sm sm:text-base leading-relaxed">
                 Have an exciting project, open position, or just want to say hi? Drop me a message below.
             </p>
-            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-4"></div>
+            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mt-3"></div>
         </div>
 
-        <div class="max-w-4xl mx-auto glass-panel p-6 sm:p-12 border border-white/80 dark:border-white/10 shadow-2xl">
+        <div class="max-w-4xl mx-auto glass-panel p-5 sm:p-8 lg:p-10 border border-white/80 dark:border-white/10 shadow-2xl">
             <!-- Contact Quick Chips -->
             <div
-                class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 pb-8 border-b border-slate-200/50 dark:border-white/10">
-                <div class="glass-card p-4 text-center">
+                class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8 pb-5 sm:pb-6 border-b border-slate-200/50 dark:border-white/10">
+                <div class="glass-card p-3 sm:p-4 text-center">
                     <span class="text-xs font-semibold uppercase text-slate-400 block mb-1">Email Me</span>
                     <a href="mailto:mickaelgarde143@gmail.com"
                         class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white hover:text-blue-500 transition break-all">
                         mickaelgarde143@gmail.com
                     </a>
                 </div>
-                <div class="glass-card p-4 text-center">
+                <div class="glass-card p-3 sm:p-4 text-center">
                     <span class="text-xs font-semibold uppercase text-slate-400 block mb-1">Location</span>
                     <span class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white">Davao City,
                         Philippines</span>
                 </div>
-                <div class="glass-card p-4 text-center">
+                <div class="glass-card p-3 sm:p-4 text-center">
                     <span class="text-xs font-semibold uppercase text-slate-400 block mb-1">Response Time</span>
                     <span class="text-xs sm:text-sm font-bold text-emerald-600 dark:text-emerald-400">Within 24
                         Hours</span>
@@ -1160,41 +1165,41 @@
             </div>
 
             <!-- Contact Form -->
-            <form id="contactForm" method="POST" action="https://api.web3forms.com/submit" class="space-y-6">
+            <form id="contactForm" method="POST" action="https://api.web3forms.com/submit" class="space-y-4 sm:space-y-5">
                 <input type="hidden" name="access_key" value="900b2860-857a-47ee-9731-5653928b2842">
                 <!-- Honeypot -->
                 <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     <div>
                         <label
-                            class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Your
+                            class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Your
                             Name</label>
                         <input type="text" placeholder="John Doe" required name="name"
-                            class="w-full p-4 rounded-xl glass-input text-sm text-slate-800 dark:text-white placeholder-slate-400 outline-none">
+                            class="w-full p-3.5 sm:p-4 rounded-xl glass-input text-sm text-slate-800 dark:text-white placeholder-slate-400 outline-none">
                     </div>
 
                     <div>
                         <label
-                            class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Your
+                            class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Your
                             Email</label>
                         <input type="email" placeholder="john@example.com" required name="email"
-                            class="w-full p-4 rounded-xl glass-input text-sm text-slate-800 dark:text-white placeholder-slate-400 outline-none">
+                            class="w-full p-3.5 sm:p-4 rounded-xl glass-input text-sm text-slate-800 dark:text-white placeholder-slate-400 outline-none">
                     </div>
                 </div>
 
                 <div>
                     <label
-                        class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Your
+                        class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Your
                         Message</label>
-                    <textarea rows="5" placeholder="Tell me about your project, timeline, or idea..." required
+                    <textarea rows="4" placeholder="Tell me about your project, timeline, or idea..." required
                         name="message"
-                        class="w-full p-4 rounded-xl glass-input text-sm text-slate-800 dark:text-white placeholder-slate-400 outline-none resize-none"></textarea>
+                        class="w-full p-3.5 sm:p-4 rounded-xl glass-input text-sm text-slate-800 dark:text-white placeholder-slate-400 outline-none resize-none"></textarea>
                 </div>
 
                 <div class="text-center pt-2">
                     <button type="submit"
-                        class="px-10 py-4 rounded-full font-semibold text-sm glass-btn-dark inline-flex items-center gap-3 group">
+                        class="px-8 sm:px-10 py-3.5 sm:py-4 rounded-full font-semibold text-sm glass-btn-dark inline-flex items-center gap-3 group">
                         <span>Send Message</span>
                         <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24">
