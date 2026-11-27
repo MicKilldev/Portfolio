@@ -419,10 +419,19 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-// Close modal on Escape key
+// Close modal or drawer on Escape key and handle resize
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Escape') {
+        closeMenu();
+        closeModal();
+    }
 });
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+        closeMenu();
+    }
+}, { passive: true });
 
 // Interactive Glass Cursor Follower for Desktop
 if (window.matchMedia('(pointer: fine)').matches) {

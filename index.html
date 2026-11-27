@@ -118,48 +118,49 @@
                 </button>
             </div>
         </nav>
-
-        <!-- Mobile Menu Backdrop -->
-        <div id="menuBackdrop" onclick="closeMenu()"
-            class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
-            aria-hidden="true"></div>
-
-        <!-- Mobile Drawer Menu -->
-        <div id="sideMenu"
-            class="fixed inset-y-0 right-0 w-72 max-w-[85vw] glass-panel z-50 p-6 sm:p-8 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-between border-l border-white/80 dark:border-white/10 shadow-2xl overflow-y-auto">
-            <div>
-                <div class="flex items-center justify-between pb-5 border-b border-slate-200/60 dark:border-white/10">
-                    <span class="font-bold text-lg text-slate-800 dark:text-white">Navigation</span>
-                    <button onclick="closeMenu()"
-                        class="w-9 h-9 rounded-full glass-pill flex items-center justify-center hover:scale-105 transition"
-                        aria-label="Close menu">
-                        <img src="./image/close-black.png" alt="Close" class="w-4 dark:hidden">
-                        <img src="./image/close-white.png" alt="Close" class="w-4 hidden dark:block">
-                    </button>
-                </div>
-                <ul class="flex flex-col gap-4 mt-6 text-base font-medium text-slate-700 dark:text-slate-200">
-                    <li><a href="#top" data-nav="top" onclick="closeMenu()"
-                            class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">Home</a></li>
-                    <li><a href="#about" data-nav="about" onclick="closeMenu()"
-                            class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">About</a></li>
-                    <li><a href="#skills" data-nav="skills" onclick="closeMenu()"
-                            class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">Skills</a></li>
-                    <li><a href="#services" data-nav="services" onclick="closeMenu()"
-                            class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">Services</a></li>
-                    <li><a href="#work" data-nav="work" onclick="closeMenu()"
-                            class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">Projects</a></li>
-                    <li><a href="#contact" data-nav="contact" onclick="closeMenu()"
-                            class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">Contact</a></li>
-                </ul>
-            </div>
-            <div class="pt-6 border-t border-slate-200/60 dark:border-white/10">
-                <a href="#contact" onclick="closeMenu()"
-                    class="w-full py-3 rounded-full text-center font-semibold text-sm glass-btn-dark block">
-                    Get in Touch
-                </a>
-            </div>
-        </div>
     </header>
+
+    <!-- Mobile Menu Backdrop -->
+    <div id="menuBackdrop" onclick="closeMenu()"
+        class="fixed inset-0 bg-black/60 backdrop-blur-md z-[99] opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+        aria-hidden="true"></div>
+
+    <!-- Mobile Drawer Menu -->
+    <aside id="sideMenu"
+        class="fixed inset-y-0 right-0 h-full h-[100dvh] w-72 max-w-[85vw] glass-panel z-[100] p-6 sm:p-8 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-between border-l border-white/80 dark:border-white/10 shadow-2xl overflow-y-auto rounded-l-3xl rounded-r-none"
+        aria-label="Mobile Navigation">
+        <div>
+            <div class="flex items-center justify-between pb-5 border-b border-slate-200/60 dark:border-white/10">
+                <span class="font-bold text-lg text-slate-800 dark:text-white">Navigation</span>
+                <button onclick="closeMenu()"
+                    class="w-9 h-9 rounded-full glass-pill flex items-center justify-center hover:scale-105 transition"
+                    aria-label="Close menu">
+                    <img src="./image/close-black.png" alt="Close" class="w-4 dark:hidden">
+                    <img src="./image/close-white.png" alt="Close" class="w-4 hidden dark:block">
+                </button>
+            </div>
+            <ul class="flex flex-col gap-4 mt-6 text-base font-medium text-slate-700 dark:text-slate-200">
+                <li><a href="#top" data-nav="top" onclick="closeMenu()"
+                        class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">Home</a></li>
+                <li><a href="#about" data-nav="about" onclick="closeMenu()"
+                        class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">About</a></li>
+                <li><a href="#skills" data-nav="skills" onclick="closeMenu()"
+                        class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">Skills</a></li>
+                <li><a href="#services" data-nav="services" onclick="closeMenu()"
+                        class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">Services</a></li>
+                <li><a href="#work" data-nav="work" onclick="closeMenu()"
+                        class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">Projects</a></li>
+                <li><a href="#contact" data-nav="contact" onclick="closeMenu()"
+                        class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-white transition">Contact</a></li>
+            </ul>
+        </div>
+        <div class="pt-6 border-t border-slate-200/60 dark:border-white/10">
+            <a href="#contact" onclick="closeMenu()"
+                class="w-full py-3 rounded-full text-center font-semibold text-sm glass-btn-dark block">
+                Get in Touch
+            </a>
+        </div>
+    </aside>
 
     <!-- Hero Section -->
     <section id="top"
